@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructora Cosco - Versión Simplificada</title>
+    <style>
+        /* --- ESTILOS BÁSICOS PARA VISUALIZAR LA ESTRUCTURA --- */
+        /* Puedes modificar y añadir todos los estilos que quieras aquí */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Encabezado (Header) */
+        header {
+            background-color: #8b0000; /* Color granate */
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo img {
+            max-height: 70px; /* Ajusta el tamaño del logo */
+            width: auto;
+            display: block;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffd700; /* Dorado al hacer hover */
+        }
+
+        /* Pie de página (Footer) */
+        footer {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #ccc; /* Placeholder gris para el icono */
+            display: inline-block;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+            background-color: #ffd700;
+        }
+
+        /* Estilos de Contenido Principal */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+        h1, h2, h3 {
+            color: #1e2d3b; /* Azul oscuro de la paleta */
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        hr {
+            border: 0;
+            border-top: 5px solid #8b0000; /* Línea roja */
+            width: 100px;
+            margin: 1rem auto;
+        }
+        .grid-3-columnas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        /* ===== ESTILOS MEJORADOS PARA TARJETAS ===== */
+        .servicio-card, .proyecto-card {
+            background-color: #f7f7f7; /* Color gris muy claro */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+        
+        .servicio-card:hover, .proyecto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* EFECTOS PARA IMÁGENES DE SERVICIOS */
+        .servicio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            display: block;
+        }
+        
+        .servicio-card:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        /* CAPA DE BRILLO AL HACER HOVER */
+        .servicio-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .servicio-card:hover::after {
+            opacity: 1;
+        }
+        
+        .servicio-card h3,
+        .servicio-card p {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .servicio-card h3 {
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .servicio-card:hover h3 {
+            color: #8b0000;
+        }
+        
+        /* EFECTOS PARA PROYECTOS */
+        .proyecto-card {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .proyecto-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            display: block;
+        }
+        
+        .proyecto-card:hover img {
+            transform: scale(1.15);
+            filter: brightness(0.8) saturate(1.2);
+        }
+        
+        /* OVERLAY CON INFORMACIÓN DEL PROYECTO */
+        .proyecto-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .proyecto-card:hover .overlay {
+            transform: translateY(0);
+        }
+        
+        .proyecto-card .overlay h3 {
+            color: white;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .proyecto-card .overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* ANIMACIÓN AL HACER SCROLL */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* EFECTOS PARA CLIENTES */
+        .clientes-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        .cliente-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #f0f0f0, #d9d9d9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .cliente-placeholder:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(145deg, #8b0000, #a52a2a);
+            color: white;
+            box-shadow: 0 10px 25px rgba(139,0,0,0.3);
+        }
+        
+        /* CONTACTO */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .mapa-placeholder {
+            background-color: #e0e0e0;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        .mapa-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .formulario-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .formulario-contacto input,
+        .formulario-contacto textarea {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .formulario-contacto input:focus,
+        .formulario-contacto textarea:focus {
+            border-color: #8b0000;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .formulario-contacto button {
+            background-color: #8b0000;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .formulario-contacto button:hover {
+            background-color: #a52a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139,0,0,0.3);
+        }
+        .formulario-contacto button:active {
+            transform: translateY(0);
+        }
+        
+        /* EFECTO DE ONDA EN EL BOTÓN */
+        .formulario-contacto button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .formulario-contacto button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .estadisticas {
+            background-color: #8b0000;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .estadisticas .grid-3-columnas {
+            color: white;
+        }
+        .estadisticas h3 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 0.2em;
+        }
+        
+        /* ANIMACIÓN PARA NÚMEROS EN ESTADÍSTICAS */
+        @keyframes contar {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .estadisticas .grid-3-columnas > div {
+            animation: contar 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .estadisticas .grid-3-columnas > div:nth-child(1) { animation-delay: 0.2s; }
+        .estadisticas .grid-3-columnas > div:nth-child(2) { animation-delay: 0.4s; }
+        .estadisticas .grid-3-columnas > div:nth-child(3) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER (ENCABEZADO) ===== -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <!-- PASO 1: Reemplaza 'logo.jpg' con la ruta de tu propio logo -->
+                <img src="logo.jpg" alt="Logo Constructora Cosco">
+            </div>
+            <nav>
+                <ul>
+                    <!-- PASO 2: Cambia los textos y los enlaces (#) por las secciones de tu página -->
+                    <li><a href="#inicio">COSCO</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
+                    <li><a href="#proyectos">PROYECTOS</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MAIN (CONTENIDO PRINCIPAL) ===== -->
+    <main>
+        <!-- Sección de Inicio (Hero) - Clase fade-in-section añadida -->
+        <section id="inicio" class="fade-in-section" style="text-align: center; padding: 4rem 0;">
+            <h1 style="color: #1e2d3b; font-size: 3em;">LÍDERES EN LA INDUSTRIA DE LA CONSTRUCCIÓN</h1>
+            <!-- PASO 3: Cambia el texto del título principal -->
+        </section>
+
+        <!-- ===== SECCIÓN DE SERVICIOS CON IMÁGENES Y EFECTOS ===== -->
+        <section id="servicios" class="fade-in-section">
+            <h2>SERVICIOS</h2>
+            <hr>
+            
+            <div class="grid-3-columnas">
+                <!-- SERVICIO 1 - Project Management -->
+                <div class="servicio-card">
+                    <!-- 🖼️ ESPACIO PARA LA IMAGEN DEL SERVICIO 1 -->
+                    <img src="gestion-proyectos.jpg" alt="Project Management">
+                    <h3>PROJECT MANAGEMENT</h3>
+                    <p>Planificación, ejecución, control y cierre de proyectos.</p>
+                </div>
+
+                <!-- SERVICIO 2 - Construcción -->
+                <div class="servicio-card">
+                    <!-- 🖼️ ESPACIO PARA LA IMAGEN DEL SERVICIO 2 -->
+                    <img src="img/Punta-Sal.jpg" alt="Construcción">
+                    <h3>CONSTRUCCIÓN</h3>
+                    <p>Servicio completo de ingeniería y construcción.</p>
+                </div>
+
+                <!-- SERVICIO 3 - Venta de Agregados -->
+                <div class="servicio-card">
+                    <!-- 🖼️ ESPACIO PARA LA IMAGEN DEL SERVICIO 3 -->
+                    <img src="agregados.jpg" alt="Venta de Agregados">
+                    <h3>VENTA DE AGREGADOS</h3>
+                    <p>Venta de agregados pétreos y productos derivados del cemento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Nosotros - Clase fade-in-section añadida -->
+        <section id="nosotros" class="fade-in-section">
+            <h2>SOBRE NOSOTROS</h2>
+            <hr>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                <div>
+                    <!-- PASO 5: Cambia el texto de la descripción de la empresa -->
+                    <p>En Constructora Cosco tenemos más de 25 años de experiencia en la industria de la construcción en Honduras. Estamos calificados en Categoría A1 como contratistas del estado y registrados en el Colegio de Ingenieros.</p>
+                    <p>Tenemos experiencia en obras públicas y privadas: carreteras pavimentadas y no pavimentadas, puentes, dragados y más. Contamos con un departamento de ventas de agregados y un laboratorio certificado.</p>
+                </div>
+                <!-- PASO 6: Aquí puedes poner una imagen representativa o dejarlo como texto -->
+                <div class="mapa-placeholder">[Tu imagen aquí]</div>
+            </div>
+        </section>
+
+        <!-- Sección de Estadísticas - Clase fade-in-section añadida -->
+        <section class="estadisticas fade-in-section">
+            <div class="grid-3-columnas">
+                <div>
+                    <h3>1998</h3>
+                    <p>AÑO DE FUNDACIÓN</p>
+                </div>
+                <div>
+                    <h3>210</h3>
+                    <p>PROYECTOS REALIZADOS</p>
+                </div>
+                <div>
+                    <h3>100%</h3>
+                    <p>PROYECTOS A TIEMPO</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Proyectos - Clase fade-in-section añadida -->
+        <section id="proyectos" class="fade-in-section">
+            <h2>PROYECTOS</h2>
+            <hr>
+            <div class="grid-3-columnas">
+                <!-- Proyecto 1 -->
+                <div class="proyecto-card">
+                    <img src="proyecto1.jpg" alt="Puente de Concreto">
+                    <div class="overlay">
+                        <h3>Puente de Concreto</h3>
+                        <p>Construcción de puente vehicular</p>
+                    </div>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="proyecto-card">
+                    <img src="proyecto2.jpg" alt="Trabajo de Terracería">
+                    <div class="overlay">
+                        <h3>Trabajo de Terracería</h3>
+                        <p>Movimiento de tierras y nivelación</p>
+                    </div>
+                </div>
+                <!-- Proyecto 3 -->
+                <div class="proyecto-card">
+                    <img src="proyecto3.jpg" alt="Carretera de Asfalto">
+                    <div class="overlay">
+                        <h3>Carretera de Asfalto</h3>
+                        <p>Pavimentación asfáltica</p>
+                    </div>
+                </div>
+                <!-- Proyecto 4 -->
+                <div class="proyecto-card">
+                    <img src="img/Punta-Sal.jpg" alt="Carretera de Concreto">
+                    <div class="overlay">
+                        <h3>Carretera de Concreto</h3>
+                        <p>Pavimentación de concreto hidráulico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Clientes - Clase fade-in-section añadida -->
+        <section class="fade-in-section">
+            <h2>CLIENTES</h2>
+            <hr>
+            <div class="clientes-grid">
+                <!-- PASO 8: Reemplaza los placeholders con los logos de tus clientes -->
+                <div class="cliente-placeholder">Logo Cliente 1</div>
+                <div class="cliente-placeholder">Logo Cliente 2</div>
+                <div class="cliente-placeholder">Logo Cliente 3</div>
+                <div class="cliente-placeholder">Logo Cliente 4</div>
+                <div class="cliente-placeholder">Logo Cliente 5</div>
+                <div class="cliente-placeholder">Logo Cliente 6</div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto - Clase fade-in-section añadida -->
+        <section id="contacto" class="fade-in-section">
+            <h2>CONTACTO</h2>
+            <hr>
+            <div class="contacto-grid">
+                <div>
+                    <h3>Oficina Principal</h3>
+                    <p><strong>Dirección:</strong> Bo. El Centro, Tocoa, Honduras.</p>
+                    <p><strong>Email:</strong> cosco@constructoracosco.com</p>
+                    <p><strong>Teléfono:</strong> +504 2444-3892</p>
+                    <p><strong>Horario:</strong> Lun-Vie 8:00 a. m. a 5:00 p. m.</p>
+
+                    <h3 style="margin-top: 2rem;">Ubicación II - Venta de Agregados</h3>
+                    <p><strong>Dirección:</strong> Frente a CA-13, Zamora, Tocoa, Colón.</p>
+                    <p><strong>Email:</strong> ventas@constructoracosco.com</p>
+                    <p><strong>Teléfono:</strong> +504 2434-9525</p>
+                    <p><strong>Horario:</strong> Lun-Vie 8:00 a. m. a 5:00 p. m.</p>
+                </div>
+                <div>
+                    <h3>Solicitar Información</h3>
+                    <!-- PASO 9: Modifica los campos del formulario según necesites -->
+                    <form class="formulario-contacto">
+                        <input type="text" placeholder="Nombre" name="nombre">
+                        <input type="text" placeholder="Apellido" name="apellido">
+                        <input type="email" placeholder="Email" name="email" required>
+                        <input type="text" placeholder="Teléfono" name="telefono">
+                        <textarea placeholder="Mensaje" rows="5" name="mensaje"></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Mapa de ejemplo (placeholder) -->
+            <div class="mapa-placeholder" style="margin-top: 2rem;">
+                [Aquí iría un mapa interactivo]
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER (PIE DE PÁGINA) ===== -->
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Constructora Cosco. Todos los derechos reservados.</p>
+            <!-- PASO 10: Cambia el texto del copyright y añade enlaces a redes sociales reales -->
+            <div style="margin-top: 1rem;">
+                <a href="#" style="display: inline-block; margin: 0 5px;"><span class="social-icon"></span></a>
+                <!-- Icono de Facebook como placeholder -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS PARA ANIMACIONES -->
+    <script>
+        // ANIMACIÓN AL HACER SCROLL
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+                    const windowHeight = window.innerHeight;
+                    
+                    // El elemento es visible cuando está en la pantalla
+                    if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Verificar al cargar la página
+            checkFade();
+            
+            // Verificar al hacer scroll
+            window.addEventListener('scroll', checkFade);
+            
+            // EFECTO DE NÚMEROS EN ESTADÍSTICAS
+            const statsSection = document.querySelector('.estadisticas');
+            if (statsSection) {
+                const stats = statsSection.querySelectorAll('h3');
+                stats.forEach(stat => {
+                    const finalNumber = stat.textContent;
+                    stat.setAttribute('data-target', finalNumber);
+                    stat.textContent = '0';
+                });
+                
+                function animateNumbers() {
+                    if (statsSection.classList.contains('visible')) {
+                        stats.forEach(stat => {
+                            const target = stat.getAttribute('data-target');
+                            let current = 0;
+                            const increment = target.includes('%') ? 1 : Math.ceil(parseInt(target) / 50);
+                            
+                            const timer = setInterval(() => {
+                                if (target.includes('%')) {
+                                    if (current < parseInt(target)) {
+                                        current += increment;
+                                        stat.textContent = current + '%';
+                                    } else {
+                                        stat.textContent = target;
+                                        clearInterval(timer);
+                                    }
+                                } else {
+                                    if (current < parseInt(target)) {
+                                        current += increment;
+                                        stat.textContent = current;
+                                    } else {
+                                        stat.textContent = target;
+                                        clearInterval(timer);
+                                    }
+                                }
+                            }, 30);
+                        });
+                        
+                        // Remover el event listener después de la primera animación
+                        window.removeEventListener('scroll', checkNumbers);
+                    }
+                }
+                
+                function checkNumbers() {
+                    const rect = statsSection.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        animateNumbers();
+                    }
+                }
+                
+                window.addEventListener('scroll', checkNumbers);
+                checkNumbers(); // Verificar al cargar
+            }
+        });
+    </script>
+        <!-- ===== BOTÓN FLOTANTE PROFESIONAL CON TRES PUNTOS HORIZONTALES ===== -->
+    <style>
+        /* ESTILOS EXCLUSIVOS PARA EL BOTÓN FLOTANTE - NO AFECTA AL RESTO */
+        .professional-social-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99999;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Botón principal - diseño elegante con tres puntos */
+        .professional-main-btn {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(145deg, #8b0000, #5c0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 100000;
+        }
+
+        .professional-main-btn:hover {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 35px rgba(139, 0, 0, 0.6);
+        }
+
+        /* TRES PUNTOS HORIZONTALES (⋯) - perfectamente centrados */
+        .professional-main-btn .dots-icon {
+            color: white;
+            font-size: 40px;
+            line-height: 1;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            letter-spacing: 2px;
+            margin-top: -6px; /* Ajuste fino para centrar verticalmente */
+        }
+
+        /* ICONO DE CERRAR (X) - perfectamente centrado */
+        .professional-main-btn .close-icon {
+            color: white;
+            font-size: 40px;
+            line-height: 1;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.5) rotate(-90deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Cuando el botón está activo, intercambiar iconos */
+        .professional-main-btn.active .dots-icon {
+            opacity: 0;
+            transform: scale(0.5) rotate(90deg);
+        }
+
+        .professional-main-btn.active .close-icon {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        /* Panel de iconos - AHORA PERFECTAMENTE CENTRADO CON EL BOTÓN */
+        .professional-icons-panel {
+            position: absolute;
+            bottom: 0;
+            left: 50%; /* Centramos respecto al botón */
+            transform: translateX(-50%); /* Ajuste fino para centrar */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra los iconos horizontalmente */
+            gap: 15px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding-bottom: 80px; /* Espacio para que aparezcan arriba del botón */
+        }
+
+        .professional-social-btn.active .professional-icons-panel {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        /* Cada ítem social - AHORA CENTRADO PERFECTAMENTE */
+        .professional-social-item {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            /* Eliminamos cualquier margen que pueda descentrar */
+            margin: 0;
+        }
+
+        /* Efecto de brillo al pasar el mouse */
+        .professional-social-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .professional-social-item:hover::before {
+            left: 100%;
+        }
+
+        /* Efecto hover - se eleva y agranda (ahora hacia arriba para no descentrar) */
+        .professional-social-item:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Iconos SVG profesionales */
+        .professional-social-item svg {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .professional-social-item:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip con el nombre de la red - AHORA APARECE A LA IZQUIERDA PERO CENTRADO VERTICALMENTE */
+        .professional-social-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 65px; /* Posición a la izquierda del icono */
+            top: 50%;
+            transform: translateY(-50%); /* Centrado vertical con el icono */
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.3px;
+        }
+
+        .professional-social-item:hover::after {
+            opacity: 1;
+            right: 75px;
+        }
+
+        /* Colores específicos para cada red */
+        .professional-social-item.whatsapp {
+            background: #25D366;
+        }
+        .professional-social-item.whatsapp svg {
+            fill: white;
+        }
+
+        .professional-social-item.facebook {
+            background: #1877F2;
+        }
+        .professional-social-item.facebook svg {
+            fill: white;
+        }
+
+        .professional-social-item.instagram {
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
+        }
+        .professional-social-item.instagram svg {
+            fill: white;
+        }
+
+        .professional-social-item.tiktok {
+            background: #000000;
+        }
+        .professional-social-item.tiktok svg {
+            fill: white;
+        }
+
+        .professional-social-item.youtube {
+            background: #FF0000;
+        }
+        .professional-social-item.youtube svg {
+            fill: white;
+        }
+
+        .professional-social-item.linkedin {
+            background: #0077B5;
+        }
+        .professional-social-item.linkedin svg {
+            fill: white;
+        }
+
+        /* Animación de entrada - aparecen desde abajo pero centrados */
+        .professional-social-btn.active .professional-social-item {
+            animation: slideUpCentered 0.3s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .professional-social-btn.active .professional-social-item:nth-child(1) { animation-delay: 0.05s; }
+        .professional-social-btn.active .professional-social-item:nth-child(2) { animation-delay: 0.1s; }
+        .professional-social-btn.active .professional-social-item:nth-child(3) { animation-delay: 0.15s; }
+        .professional-social-btn.active .professional-social-item:nth-child(4) { animation-delay: 0.2s; }
+        .professional-social-btn.active .professional-social-item:nth-child(5) { animation-delay: 0.25s; }
+        .professional-social-btn.active .professional-social-item:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes slideUpCentered {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .professional-main-btn {
+                width: 55px;
+                height: 55px;
+            }
+            .professional-main-btn .dots-icon {
+                font-size: 35px;
+                margin-top: -5px;
+            }
+            .professional-main-btn .close-icon {
+                font-size: 35px;
+            }
+            .professional-social-item {
+                width: 48px;
+                height: 48px;
+            }
+            .professional-social-item svg {
+                width: 24px;
+                height: 24px;
+            }
+            .professional-social-item::after {
+                font-size: 11px;
+                padding: 4px 10px;
+                right: 55px;
+            }
+            .professional-social-item:hover::after {
+                right: 60px;
+            }
+            .professional-icons-panel {
+                gap: 12px;
+                padding-bottom: 70px;
+            }
+            .professional-social-btn {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Efecto de onda de apertura */
+        .professional-main-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .professional-main-btn.active::before {
+            transform: scale(2);
+            opacity: 0;
+        }
+
+        /* Línea guía visual para ver la alineación (opcional, descomenta para verificar) */
+        /*
+        .professional-icons-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+        */
+    </style>
+
+    <div class="professional-social-btn" id="professionalSocialBtn">
+        <!-- Botón principal con TRES PUNTOS HORIZONTALES -->
+        <div class="professional-main-btn" onclick="toggleProfessionalMenu()">
+            <span class="dots-icon">⋯</span>
+            <span class="close-icon">✕</span>
+        </div>
+        
+        <!-- Panel con iconos sociales - PERFECTAMENTE CENTRADOS CON EL BOTÓN -->
+        <div class="professional-icons-panel">
+            <!-- 🔴 REEMPLAZA LOS '#' CON TUS ENLACES REALES -->
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/504XXXXXXXX" target="_blank" class="professional-social-item whatsapp" data-tooltip="WhatsApp">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.11 8.11 0 0 1-1.24-4.34c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.21 8.21 0 0 1 2.41 5.83c.02 4.54-3.68 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.31z"/>
+                </svg>
+            </a>
+            
+            <!-- Facebook -->
+            <a href="#" target="_blank" class="professional-social-item facebook" data-tooltip="Facebook">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+                </svg>
+            </a>
+            
+            <!-- Instagram -->
+            <a href="#" target="_blank" class="professional-social-item instagram" data-tooltip="Instagram">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.89 4.89 0 0 1-1.153 1.772c-.5.509-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.89 4.89 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.89 4.89 0 0 1 1.153-1.772A4.89 4.89 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                </svg>
+            </a>
+            
+            <!-- TikTok -->
+            <a href="#" target="_blank" class="professional-social-item tiktok" data-tooltip="TikTok">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.2-.01.39.01.58.03V9.44a6.33 6.33 0 0 0-1-.08 6.34 6.34 0 0 0 0 12.68c3.5 0 6.34-2.84 6.34-6.34v-7.1a8.23 8.23 0 0 0 4.77 1.47v-3.4a4.84 4.84 0 0 1-1.48-.26z"/>
+                </svg>
+            </a>
+            
+            <!-- YouTube -->
+            <a href="#" target="_blank" class="professional-social-item youtube" data-tooltip="YouTube">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                </svg>
+            </a>
+            
+            <!-- LinkedIn (opcional) -->
+            <a href="#" target="_blank" class="professional-social-item linkedin" data-tooltip="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.68-1.68-1.68a1.68 1.68 0 0 0-1.68 1.68c0 .93.75 1.68 1.68 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir/cerrar el menú profesional
+        function toggleProfessionalMenu() {
+            const btn = document.getElementById('professionalSocialBtn');
+            const mainBtn = btn.querySelector('.professional-main-btn');
+            
+            btn.classList.toggle('active');
+            mainBtn.classList.toggle('active');
+        }
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            const btn = document.getElementById('professionalSocialBtn');
+            if (!btn.contains(event.target) && btn.classList.contains('active')) {
+                toggleProfessionalMenu();
+            }
+        });
+
+        // Prevenir que el menú se cierre al hacer clic en los iconos
+        document.querySelectorAll('.professional-social-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>

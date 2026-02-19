@@ -1,0 +1,89 @@
+/* PASO 1: Estilos generales del sitio */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* PASO 2: Encabezado */
+header {
+    background-color: #0a3d62;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* PASO 3: Menú de navegación */
+nav {
+    background-color: #1e3799;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #fbc531;
+}
+
+/* PASO 4: Secciones */
+section {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 6px;
+}
+
+section h2 {
+    color: #1e3799;
+    margin-bottom: 15px;
+}
+
+/* PASO 5: Listas */
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* PASO 6: Botón */
+.btn {
+    display: inline-block;
+    background-color: #1e3799;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #4a69bd;
+}
+
+/* PASO 7: Pie de página */
+footer {
+    background-color: #0a3d62;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
