@@ -8,27 +8,29 @@
         /* --- ESTILOS BÁSICOS --- */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
             line-height: 1.5;
             color: #333;
             overflow-x: hidden;
             background-color: #f5f5f5;
+            width: 100%;
         }
 
         /* Encabezado (Header) - NEGRO */
         header {
             background-color: #000000;
             color: white;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             position: sticky;
             top: 0;
             z-index: 10;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            width: 100%;
         }
         .header-container {
             max-width: 1200px;
@@ -36,11 +38,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 15px;
             flex-wrap: wrap;
         }
         .logo img {
-            max-height: 70px;
+            max-height: 50px;
             width: auto;
             display: block;
         }
@@ -49,7 +51,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
         nav a {
@@ -58,7 +60,7 @@
             font-weight: bold;
             transition: color 0.3s ease;
             cursor: pointer;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         nav a:hover {
             color: white;
@@ -70,15 +72,16 @@
             text-align: center;
             padding: 2rem 0;
             margin-top: 3rem;
+            width: 100%;
         }
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         .whatsapp-footer-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background-color: #25D366;
             color: white;
             display: inline-flex;
@@ -94,8 +97,8 @@
             background-color: #128C7E;
         }
         .whatsapp-footer-icon svg {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             fill: white;
         }
 
@@ -123,30 +126,31 @@
             color: #000000;
         }
         h1 {
-            font-size: clamp(2rem, 5vw, 2.5em);
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
         }
         h2 {
-            font-size: clamp(1.8rem, 4vw, 2em);
+            font-size: clamp(1.5rem, 5vw, 2rem);
             text-align: center;
-            margin-bottom: 1rem;
-            padding-top: 1rem;
+            margin: 1rem 0;
+            padding: 0 15px;
             color: #000000;
         }
         h3 {
-            font-size: clamp(1.3rem, 3vw, 1.5em);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
         }
         hr {
             border: 0;
             border-top: 5px solid #FFD700;
-            width: 100px;
+            width: 80px;
             margin: 1rem auto;
         }
         
         .grid-3-columnas {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 0 15px;
         }
         
         .producto-card {
@@ -154,76 +158,71 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
             position: relative;
             border: 1px solid #FFD700;
-            height: 540px;
-            width: 100%;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
         }
         
         .producto-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 30px rgba(255,215,0,0.3);
             border-color: #000000;
         }
         
         .producto-card img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             transition: all 0.5s ease;
             display: block;
-            flex-shrink: 0;
         }
         
         .producto-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .producto-card h3 {
-            margin: 0 0 0.5rem 0;
+            margin: 1rem 1rem 0.5rem;
             font-size: 1.2rem;
             font-weight: bold;
             line-height: 1.4;
-            min-height: 3.3rem;
-            max-height: 3.3rem;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
-            width: 100%;
         }
         
         .producto-card p {
             color: #555;
-            margin: 0 0 0.8rem 0;
-            flex: 1;
+            margin: 0 1rem 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            width: 100%;
+            flex: 1;
         }
         
         .producto-card a {
             background-color: #000000;
             color: #FFD700;
             text-decoration: none;
-            padding: 10px 12px;
+            padding: 12px 1rem;
             border-radius: 8px;
             text-align: center;
             font-weight: bold;
             border: 2px solid #FFD700;
             transition: all 0.3s ease;
             display: block;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 0;
-            flex-shrink: 0;
+            width: calc(100% - 2rem);
+            margin: 0 1rem 1rem;
+            font-size: 0.9rem;
         }
         
         .producto-card a:hover {
@@ -233,33 +232,33 @@
         
         .mision-vision-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-            padding: 0 20px;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 0 15px;
         }
         
         .mision-card, .vision-card {
             background: linear-gradient(145deg, #ffffff, #f5f5f5);
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
             transition: all 0.4s ease;
             border: 2px solid #FFD700;
-            height: 100%;
+            width: 100%;
         }
         
         .mision-card:hover, .vision-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(255,215,0,0.3);
             border-color: #000000;
         }
         
         .mision-card h3, .vision-card h3 {
             color: #000000;
-            font-size: 2em;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             position: relative;
             display: inline-block;
         }
@@ -267,13 +266,19 @@
         .mision-card h3::after, .vision-card h3::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -5px;
             left: 50%;
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
             background: #FFD700;
             border-radius: 2px;
+        }
+        
+        .mision-card p, .vision-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
         }
         
         .logo-dinamico {
@@ -283,16 +288,16 @@
         }
         
         .logo-dinamico:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-5px) scale(1.01);
             box-shadow: 0 25px 50px rgba(255,215,0,0.3);
         }
         
         .logo-dinamico:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         
         .logo-dinamico {
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
         }
         
         .logo-dinamico img {
@@ -301,18 +306,18 @@
         
         .contacto-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 0 20px;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 15px;
         }
         
         .info-contacto {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid #FFD700;
-            height: 100%;
+            width: 100%;
         }
         
         .info-contacto h3 {
@@ -320,6 +325,12 @@
             border-bottom: 2px solid #FFD700;
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-contacto p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .formulario-contacto {
@@ -327,11 +338,11 @@
             flex-direction: column;
             gap: 1rem;
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid #FFD700;
-            height: 100%;
+            width: 100%;
         }
         
         .formulario-contacto input,
@@ -342,7 +353,7 @@
             font-family: inherit;
             transition: all 0.3s ease;
             width: 100%;
-            box-sizing: border-box;
+            font-size: 1rem;
         }
         
         .formulario-contacto input:focus,
@@ -355,11 +366,11 @@
         .formulario-contacto button {
             background-color: #000000;
             color: #FFD700;
-            padding: 12px 24px;
+            padding: 12px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 1.1em;
+            font-size: 1.1rem;
             font-weight: bold;
             transition: all 0.3s ease;
             border: 2px solid #FFD700;
@@ -369,30 +380,25 @@
         .formulario-contacto button:hover {
             background-color: #FFD700;
             color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
         }
         
         .servicios-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-            padding: 0 20px;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 0 15px;
         }
         
         .servicio-item {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid #FFD700;
             text-align: center;
             transition: all 0.3s ease;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 100%;
         }
         
         .servicio-item:hover {
@@ -403,8 +409,14 @@
         
         .servicio-item h3 {
             color: #000000;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .servicio-item p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
         }
         
         .fade-in-section {
@@ -420,9 +432,9 @@
         }
         
         .categoria-titulo {
-            font-size: 1.8em;
+            font-size: 1.5rem;
             color: #000000;
-            margin: 2rem 0 1rem 20px;
+            margin: 1.5rem 0 1rem 15px;
             border-left: 5px solid #FFD700;
             padding-left: 1rem;
         }
@@ -430,14 +442,14 @@
         /* ===== BOTÓN FLOTANTE ===== */
         .professional-social-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 99999;
         }
         
         .professional-main-btn {
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             background: #000000;
             border-radius: 50%;
             display: flex;
@@ -452,7 +464,7 @@
         
         .professional-main-btn .dots-icon {
             color: #FFD700;
-            font-size: 40px;
+            font-size: 35px;
             line-height: 1;
             font-weight: 400;
             transition: all 0.3s ease;
@@ -462,12 +474,12 @@
             width: 100%;
             height: 100%;
             letter-spacing: 2px;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
         
         .professional-main-btn .close-icon {
             color: #FFD700;
-            font-size: 40px;
+            font-size: 35px;
             line-height: 1;
             font-weight: 300;
             transition: all 0.3s ease;
@@ -493,13 +505,13 @@
         
         .professional-icons-panel {
             position: absolute;
-            bottom: 80px;
+            bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             pointer-events: none;
             opacity: 0;
             transition: all 0.3s ease;
@@ -511,8 +523,8 @@
         }
         
         .professional-social-item {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             background: #25D366;
             display: flex;
@@ -524,14 +536,14 @@
         }
         
         .professional-social-item:hover {
-            transform: scale(1.15) translateY(-5px);
+            transform: scale(1.1) translateY(-3px);
             background: #128C7E;
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
         
         .professional-social-item svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             fill: white;
         }
         
@@ -552,134 +564,148 @@
             }
         }
         
-        /* RESPONSIVE MEJORADO */
-        @media (max-width: 1024px) {
-            .grid-3-columnas,
+        /* ===== MEDIA QUERIES PARA TABLET ===== */
+        @media (min-width: 768px) {
+            .grid-3-columnas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mision-vision-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contacto-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .servicios-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
-        
-        @media (max-width: 768px) {
-            .grid-3-columnas,
-            .mision-vision-grid,
-            .contacto-grid,
-            .servicios-grid {
-                grid-template-columns: 1fr;
-            }
             
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            nav ul {
-                gap: 1rem;
-                justify-content: center;
-            }
-            
-            .producto-card {
-                height: auto;
-                min-height: 540px;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-            
-            .mision-card, .vision-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .servicio-item {
-                height: auto;
-                min-height: 220px;
-                padding: 1.5rem;
-            }
-            
-            .categoria-titulo {
-                margin-left: 10px;
-                font-size: 1.5em;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
+            .producto-card a {
+                font-size: 1rem;
             }
             
             .professional-main-btn {
-                width: 55px;
-                height: 55px;
+                width: 65px;
+                height: 65px;
             }
             
             .professional-main-btn .dots-icon {
-                font-size: 35px;
-                transform: translateY(-1px);
+                font-size: 40px;
             }
             
             .professional-main-btn .close-icon {
-                font-size: 35px;
-            }
-            
-            .professional-social-item {
-                width: 55px;
-                height: 55px;
-            }
-            
-            .professional-social-item svg {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .professional-social-btn {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .professional-icons-panel {
-                bottom: 70px;
-                gap: 12px;
-            }
-            
-            .logo-dinamico img {
-                height: 250px;
-            }
-            
-            .info-contacto, .formulario-contacto {
-                padding: 1.5rem;
+                font-size: 40px;
             }
         }
         
-        @media (max-width: 480px) {
+        /* ===== MEDIA QUERIES PARA DESKTOP ===== */
+        @media (min-width: 1024px) {
+            .grid-3-columnas {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .servicios-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            nav ul {
+                gap: 2rem;
+            }
+            
+            nav a {
+                font-size: 1.1em;
+            }
+            
             .producto-card {
-                max-width: 100%;
-                min-height: 500px;
+                height: auto;
             }
             
             .producto-card img {
-                height: 200px;
-            }
-            
-            .producto-card h3 {
-                font-size: 1.1rem;
-                min-height: 3rem;
-            }
-            
-            .servicio-item h3 {
-                font-size: 1.2rem;
+                height: 220px;
             }
             
             .categoria-titulo {
-                font-size: 1.3em;
-                margin-left: 5px;
+                margin-left: 20px;
+                font-size: 1.8rem;
             }
             
-            .whatsapp-footer-icon {
-                width: 45px;
-                height: 45px;
+            .logo img {
+                max-height: 70px;
             }
-            
-            .whatsapp-footer-icon svg {
-                width: 24px;
-                height: 24px;
+        }
+        
+        /* ===== AJUSTES ESPECÍFICOS ===== */
+        .full-width-container {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+        
+        .full-width-content {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        .logo-dinamico img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: #000000;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-dinamico img {
+                height: 300px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .logo-dinamico img {
+                height: 350px;
+            }
+        }
+        
+        /* Ajuste para el texto de "QUIÉNES SOMOS" */
+        .quienes-somos-container {
+            margin: 2rem 15px;
+        }
+        
+        .quienes-somos-container div {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .quienes-somos-container h3 {
+            color: #000000;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quienes-somos-container p {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .quienes-somos-container p {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -705,380 +731,319 @@
 
     <!-- ===== MAIN ===== -->
     <main>
-       <!-- ===== SECCIÓN NOSOTROS ===== -->
-<section id="nosotros" class="fade-in-section visible active-section">
-    <!-- LOGO DE LA EMPRESA - ANCHO COMPLETO -->
-    <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: -2rem; margin-bottom: 2rem; padding: 0;">
-        <div class="logo-dinamico" style="background-color: #000000; box-shadow: 0 15px 40px rgba(255,215,0,0.2); text-align: center; border-top: 3px solid #FFD700; border-bottom: 3px solid #FFD700; transition: all 0.4s ease; width: 100%; overflow: hidden; margin: 0; padding: 0;">
-            <img src="img/logo-empresa.jpg" alt="INVERSIONES KR" style="width: 100%; height: 350px; object-fit: contain; display: block; filter: drop-shadow(0 5px 15px rgba(255,215,0,0.3)); transition: transform 0.5s ease; margin: 0; padding: 0; vertical-align: bottom; background-color: #000000;">
-        </div>
-    </div>
+        <!-- ===== SECCIÓN NOSOTROS ===== -->
+        <section id="nosotros" class="fade-in-section visible active-section">
+            <!-- LOGO DE LA EMPRESA - ANCHO COMPLETO -->
+            <div class="full-width-container" style="margin-top: -2rem; margin-bottom: 2rem;">
+                <div class="logo-dinamico full-width-content" style="background-color: #000000; box-shadow: 0 15px 40px rgba(255,215,0,0.2); text-align: center; border-top: 3px solid #FFD700; border-bottom: 3px solid #FFD700;">
+                    <img src="img/logo-empresa.jpg" alt="INVERSIONES KR" style="width: 100%; height: 250px; object-fit: contain; display: block; filter: drop-shadow(0 5px 15px rgba(255,215,0,0.3)); transition: transform 0.5s ease; margin: 0; padding: 0; background-color: #000000;">
+                </div>
+            </div>
 
-    <h2>INVERSIONES KR</h2>
-    <hr>
-    
-    <!-- MISIÓN Y VISIÓN -->
-    <div class="mision-vision-grid">
-        <div class="mision-card">
-            <h3>MISIÓN</h3>
-            <p>Ofrecer productos tecnológicos, artículos para el hogar y servicios de mantenimiento de celulares de calidad, a precios accesibles, brindando atención personalizada y entrega a domicilio en Tocoa, Colón. Buscamos satisfacer las necesidades de nuestros clientes mientras fortalecemos nuestro emprendimiento para crecer y consolidarnos en el mercado.</p>
-        </div>
-        <div class="vision-card">
-            <h3>VISIÓN</h3>
-            <p>Convertir nuestro emprendimiento en una empresa sólida y reconocida en Tocoa, Colón, líder en ventas por pedido de productos tecnológicos y artículos para el hogar, destacándonos por nuestra confiabilidad, variedad de productos, calidad en el servicio y compromiso con la satisfacción del cliente.</p>
-        </div>
-    </div>
+            <h2>INVERSIONES KR</h2>
+            <hr>
+            
+            <!-- MISIÓN Y VISIÓN -->
+            <div class="mision-vision-grid">
+                <div class="mision-card">
+                    <h3>MISIÓN</h3>
+                    <p>Ofrecer productos tecnológicos, artículos para el hogar y servicios de mantenimiento de celulares de calidad, a precios accesibles, brindando atención personalizada y entrega a domicilio en Tocoa, Colón. Buscamos satisfacer las necesidades de nuestros clientes mientras fortalecemos nuestro emprendimiento para crecer y consolidarnos en el mercado.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>VISIÓN</h3>
+                    <p>Convertir nuestro emprendimiento en una empresa sólida y reconocida en Tocoa, Colón, líder en ventas por pedido de productos tecnológicos y artículos para el hogar, destacándonos por nuestra confiabilidad, variedad de productos, calidad en el servicio y compromiso con la satisfacción del cliente.</p>
+                </div>
+            </div>
 
-    <!-- QUIÉNES SOMOS -->
-    <div style="margin: 3rem 20px;">
-        <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #FFD700; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <h3 style="color: #000000; font-size: 2em; text-align: center; margin-bottom: 1.5rem;">QUIÉNES SOMOS</h3>
-            <p style="font-size: 1.2em; line-height: 1.8; text-align: justify; color: #555; max-width: 900px; margin: 0 auto;">
-                <strong>INVERSIONES KR</strong> es un emprendimiento ubicado en Tocoa, Colón, dedicado a la venta de productos tecnológicos, artículos para el hogar y de uso personal. Nuestro modelo de negocio se basa en la venta por pedido con entrega gratuita a domicilio en la zona, lo que permite a nuestros clientes acceder fácilmente a los productos que necesitan.
-            <p style="font-size: 1.2em; line-height: 1.8; text-align: justify; color: #555; max-width: 900px; margin: 1.5rem auto 0 auto;">
-                Actualmente nos encontramos en una etapa de emprendimiento, trabajando para crecer, ampliar nuestra oferta de productos y fortalecer nuestra presencia en el mercado, con el objetivo de convertirnos en una empresa reconocida en la región.
+            <!-- QUIÉNES SOMOS -->
+            <div class="quienes-somos-container">
+                <div>
+                    <h3>QUIÉNES SOMOS</h3>
+                    <p><strong>INVERSIONES KR</strong> es un emprendimiento ubicado en Tocoa, Colón, dedicado a la venta de productos tecnológicos, artículos para el hogar y de uso personal. Nuestro modelo de negocio se basa en la venta por pedido con entrega gratuita a domicilio en la zona, lo que permite a nuestros clientes acceder fácilmente a los productos que necesitan.</p>
+                    <p>Actualmente nos encontramos en una etapa de emprendimiento, trabajando para crecer, ampliar nuestra oferta de productos y fortalecer nuestra presencia en el mercado, con el objetivo de convertirnos en una empresa reconocida en la región.</p>
+                </div>
+            </div>
+
+            <!-- POR QUÉ ELEGIRNOS -->
+            <h2 style="margin-top: 2rem;">¿POR QUÉ ELEGIRNOS?</h2>
+            <hr>
+            <div class="grid-3-columnas" style="padding: 0 15px;">
+                <div class="producto-card" style="text-align: center; padding: 1.5rem;">
+                    <h3>ENTREGA GRATIS</h3>
+                    <p>Llevamos tus pedidos a la puerta de tu casa sin costo adicional en toda la zona de Tocoa.</p>
+                </div>
+                <div class="producto-card" style="text-align: center; padding: 1.5rem;">
+                    <h3>PRECIOS ACCESIBLES</h3>
+                    <p>Ofrecemos productos de calidad a precios que se ajustan a tu bolsillo.</p>
+                </div>
+                <div class="producto-card" style="text-align: center; padding: 1.5rem;">
+                    <h3>ATENCIÓN PERSONALIZADA</h3>
+                    <p>Te asesoramos para encontrar exactamente lo que necesitas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN PRODUCTOS ===== -->
+        <section id="productos" class="fade-in-section">
+            <h2>PRODUCTOS</h2>
+            <hr>
+            <p style="text-align: center; font-size: 1.1rem; margin: 1rem 15px 2rem; color: #000000;">Tecnología · Hogar · Accesorios · Deportes</p>
+            
+            <!-- CATEGORÍA HOGAR -->
+            <h3 class="categoria-titulo">HOGAR</h3>
+            <div class="grid-3-columnas">
+                
+                <!-- PRODUCTO 1 - Kit de manicura y pedicura -->
+                <div class="producto-card">
+                    <img src="img/kitmanicure.jpg" alt="Kit de manicura y pedicura">
+                    <h3>KIT DE MANICURA Y PEDICURA</h3>
+                    <p>Juego de 18 cortaúñas profesionales, cortador de cutículas de acero inoxidable, kit de manicura y pedicura con caja de viaje. Color rosa.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20KIT%20DE%20MANICURA%20Y%20PEDICURA" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 2 - Dispensador de agua -->
+                <div class="producto-card">
+                    <img src="img/dispensador.jpg" alt="Dispensador de agua">
+                    <h3>DISPENSADOR DE AGUA 5 GALONES</h3>
+                    <p>Para tornillo de 1.890 in o bomba de botella de agua de corona de 2.165 in. Ideal para hogar, oficina, viajes, campamento. Color blanco.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20DISPENSADOR%20DE%20AGUA%205%20GALONES" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 3 - Afeitadora recargable -->
+                <div class="producto-card">
+                    <img src="img/afeitadora.jpg" alt="Afeitadora recargable">
+                    <h3>AFEITADORA RECARGABLE COBRE</h3>
+                    <p>127/220v. Uso máximo 180 minutos. Carga completa en 2.5 horas. Silencioso. Corte hasta 4 mm.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20AFEITADORA%20RECARGABLE%20COBRE" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA TECNOLOGÍA -->
+            <h3 class="categoria-titulo">TECNOLOGÍA</h3>
+            <div class="grid-3-columnas">
+                
+                <!-- PRODUCTO 4 - Cargador Inalámbrico Magnético -->
+                <div class="producto-card">
+                    <img src="img/cargadormagnetico.jpg" alt="Cargador Inalámbrico">
+                    <h3>CARGADOR INALÁMBRICO MAGSAFE</h3>
+                    <p>Color blanco. Conector USB-C, entrada 12V, salida 15W. Incluye cable 1m. Compatible con Apple iPhone. Protección contra sobrecarga.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CARGADOR%20INAL%C3%81MBRICO%20MAGSAFE" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 5 - Regulador y Protector de Voltaje -->
+                <div class="producto-card">
+                    <img src="img/reguladordevoltage.jpg" alt="Regulador de Voltaje">
+                    <h3>REGULADOR Y PROTECTOR DE VOLTAJE</h3>
+                    <p>110 voltios AC. Para electrodomésticos. Uso: voltaje 110 voltios AC.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20REGULADOR%20Y%20PROTECTOR%20DE%20VOLTAJE" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 6 - Regleta Extensión 15 pies -->
+                <div class="producto-card">
+                    <img src="img/extencioncable.jpg" alt="Regleta Extensión">
+                    <h3>REGLETA EXTENSIÓN 15 PIES</h3>
+                    <p>Cable conectado a tierra, alta resistencia interior/exterior, flexible y duradero. Resistente a temperaturas extremas. Color brillante.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20REGLETA%20EXTENSI%C3%93N%2015%20PIES" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 7 - Cable USB-A a Lightning -->
+                <div class="producto-card">
+                    <img src="img/cable_usb_c.jpg" alt="Cable Lightning">
+                    <h3>CABLE USB-A A LIGHTNING 1M</h3>
+                    <p>Diseñado para dispositivos Apple. Conectividad rápida y eficiente. Certificado MFi. Longitud 1 metro.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CABLE%20USB-A%20A%20LIGHTNING%201M" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 8 - Memoria Kingston Micro SD 64GB -->
+                <div class="producto-card">
+                    <img src="img/memoria64gb.jpg" alt="Memoria Micro SD">
+                    <h3>MEMORIA KINGSTON MICRO SD 64GB</h3>
+                    <p>Tarjeta microSDHC/microSDXC Clase 10 UHS-I. Velocidad lectura 45MB/s, escritura 10MB/s. Factor de forma pequeño. Duradera.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20MEMORIA%20KINGSTON%20MICRO%20SD%2064GB" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 9 - Power Banks -->
+                <div class="producto-card">
+                    <img src="img/powerbank.jpg" alt="Power Bank">
+                    <h3>POWER BANKS 50000mAh</h3>
+                    <p>Baterías portátiles de alta capacidad. Ubicación Mowe. Consulta disponibilidad de modelos.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20POWER%20BANKS%2050000mAh" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 10 - Control Universal -->
+                <div class="producto-card">
+                    <img src="img/control_tv.jpg" alt="Control Universal">
+                    <h3>CONTROL UNIVERSAL RM-014S+</h3>
+                    <p>Compatible con +1000 marcas de TV LCD/LED y Smart TV (Samsung, LG, Sony). Fácil programación. Botones directos Netflix y YouTube. Diseño ergonómico.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CONTROL%20UNIVERSAL%20RM-014S%2B" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 11 - Tira LED -->
+                <div class="producto-card">
+                    <img src="img/luces_led.jpg" alt="Tira LED">
+                    <h3>TIRA LED RGB 5M CON FUENTE</h3>
+                    <p>Goodyear. Luz multicolor para crear ambientes únicos. Ideal para hogar, oficina. Instalación sencilla, diseño moderno.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20TIRA%20LED%20RGB%205M%20CON%20FUENTE" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 12 - Cargador Xiaomi -->
+                <div class="producto-card">
+                    <img src="img/cargadorxiaomi.jpg" alt="Cargador Xiaomi">
+                    <h3>CARGADOR XIAOMI 67W</h3>
+                    <p>Para Note 11 Pro, Poco X4, X5. Color blanco. Conector USB-C, entrada 12V. Carga super rápida 67W. Cable incluido.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CARGADOR%20XIAOMI%2067W" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 13 - Smart Wireless Sunglasses -->
+                <div class="producto-card">
+                    <img src="img/lentesdesolconbluetooth.jpg" alt="Smart Glasses">
+                    <h3>SMART WIRELESS SUNGLASSES</h3>
+                    <p>Combina gafas, llamadas y música. Conectividad Bluetooth, micrófono y altavoces integrados.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20SMART%20WIRELESS%20SUNGLASSES" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 14 - USB Data Traveler -->
+                <div class="producto-card">
+                    <img src="img/kingston_128gb.jpg" alt="USB Kingston">
+                    <h3>USB DATA TRAVELER KYSON</h3>
+                    <p>Elegante estuche metálico sin tapa. Hasta 200 MB/s lectura, 60 MB/s escritura.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20USB%20DATA%20TRAVELER%20KYSON" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 15 - Joystick PS4 -->
+                <div class="producto-card">
+                    <img src="img/joystick.jpg" alt="Joystick PS4 Double Motor Azul BT">
+                    <h3>JOYSTICK PS4 DOUBLE MOTOR AZUL BT</h3>
+                    <p>Mando inalámbrico Bluetooth con todas las funciones para PS4. DoubleShock, batería 3600mAh, entrada para auricular, diseño ergonómico, cable cargador incluido.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20JOYSTICK%20PS4%20DOUBLE%20MOTOR%20AZUL%20BT" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA DEPORTES -->
+            <h3 class="categoria-titulo">DEPORTES</h3>
+            <div class="grid-3-columnas">
+                
+                <!-- PRODUCTO 16 - Tobillera Elástica Deportiva -->
+                <div class="producto-card">
+                    <img src="img/tobillera.jpg" alt="Tobillera Elástica">
+                    <h3>TOBILLERA ELÁSTICA DEPORTIVA</h3>
+                    <p>Precio: $3500. Medidas: Largo 9cm x Alto 23cm. Ideal para protección deportiva.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20TOBILLERA%20EL%C3%81STICA%20DEPORTIVA" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 17 - Rodillera de Compresión -->
+                <div class="producto-card">
+                    <img src="img/rodillera.jpg" alt="Rodillera de Compresión">
+                    <h3>RODILLERA DE COMPRESIÓN</h3>
+                    <p>Para ejercicio. Color negro. Unitalla. Composición: NAYLON, Rubber, Spandex. Respirable, correas ajustables. Apto para lavadora.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20RODILLERA%20DE%20COMPRESI%C3%93N" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA ACCESORIOS MOTO -->
+            <h3 class="categoria-titulo">ACCESORIOS MOTO</h3>
+            <div class="grid-3-columnas">
+                
+                <!-- PRODUCTO 18 - Cubierta de silicona para moto -->
+                <div class="producto-card">
+                    <img src="img/protectordepalanca.jpg" alt="Cubierta para moto">
+                    <h3>CUBIERTA SILICONA PARA MOTO</h3>
+                    <p>Antideslizante para palanca de freno/embrague. Universal. Dimensiones: 9.5cm x 1.8cm. Compatible con Tmax 530, Cb500x, Vespa, Mt 07, Trk 502x.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CUBIERTA%20SILICONA%20PARA%20MOTO" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+
+                <!-- PRODUCTO 19 - Cubierta de motocicleta universal -->
+                <div class="producto-card">
+                    <img src="img/cobertodemoto.jpg" alt="Cubierta para moto">
+                    <h3>CUBIERTA PROTECTORA PARA MOTO</h3>
+                    <p>Para todas las estaciones. Impermeable universal. Protección solar y contra lluvia. Resistente a la intemperie.</p>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CUBIERTA%20PROTECTORA%20PARA%20MOTO" target="_blank">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.1rem; margin: 2rem 15px; padding: 1rem; background: #FFD700; color: #000000; border-radius: 50px; font-weight: bold;">
+                PRECIOS VARIABLES SEGÚN PEDIDO - ¡CONSULTANOS POR WHATSAPP!
             </p>
-        </div>
-    </div>
+        </section>
 
-    <!-- POR QUÉ ELEGIRNOS -->
-    <h2 style="margin-top: 3rem;">¿POR QUÉ ELEGIRNOS?</h2>
-    <hr>
-    <div class="grid-3-columnas" style="padding: 0 20px;">
-        <div class="producto-card" style="text-align: center; padding: 2rem;">
-            <h3>ENTREGA GRATIS</h3>
-            <p>Llevamos tus pedidos a la puerta de tu casa sin costo adicional en toda la zona de Tocoa.</p>
-        </div>
-        <div class="producto-card" style="text-align: center; padding: 2rem;">
-            <h3>PRECIOS ACCESIBLES</h3>
-            <p>Ofrecemos productos de calidad a precios que se ajustan a tu bolsillo.</p>
-        </div>
-        <div class="producto-card" style="text-align: center; padding: 2rem;">
-            <h3>ATENCIÓN PERSONALIZADA</h3>
-            <p>Te asesoramos para encontrar exactamente lo que necesitas.</p>
-        </div>
-    </div>
-</section>
+        <!-- ===== SECCIÓN SERVICIOS ===== -->
+        <section id="servicios" class="fade-in-section">
+            <h2>SERVICIOS DE MANTENIMIENTO</h2>
+            <hr>
+            
+            <div class="servicios-grid">
+                
+                <!-- SERVICIO 1 - MANTENIMIENTO BÁSICO DE CELULARES -->
+                <div class="servicio-item">
+                    <h3>MANTENIMIENTO BÁSICO DE CELULARES</h3>
+                    <p>Limpieza, revisión general, cambio de protectores y diagnóstico de problemas comunes.</p>
+                </div>
 
-<!-- ===== SECCIÓN PRODUCTOS ===== -->
-<section id="productos" class="fade-in-section">
-    <h2>PRODUCTOS</h2>
-    <hr>
-    <p style="text-align: center; font-size: 1.2em; margin-bottom: 2rem; color: #000000;">Tecnología · Hogar · Accesorios · Deportes</p>
-    
-    <!-- CATEGORÍA HOGAR -->
-    <h3 class="categoria-titulo">HOGAR</h3>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
-        
-        <!-- PRODUCTO 1 - Kit de manicura y pedicura -->
-        <div class="producto-card">
-            <img src="img/kitmanicure.jpg" alt="Kit de manicura y pedicura" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>KIT DE MANICURA Y PEDICURA</h3>
-                <p>Juego de 18 cortaúñas profesionales, cortador de cutículas de acero inoxidable, kit de manicura y pedicura con caja de viaje. Color rosa.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20KIT%20DE%20MANICURA%20Y%20PEDICURA" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
+                <!-- SERVICIO 2 - REPARACIÓN DE CELULARES -->
+                <div class="servicio-item">
+                    <h3>REPARACIÓN DE CELULARES</h3>
+                    <p>Reparación de pantallas, cambio de conectores, solución de fallas eléctricas y más.</p>
+                </div>
+
+                <!-- SERVICIO 3 - ASESORÍA TÉCNICA -->
+                <div class="servicio-item">
+                    <h3>ASESORÍA TÉCNICA</h3>
+                    <p>Te ayudamos a elegir el accesorio o repuesto correcto para tu dispositivo.</p>
+                </div>
             </div>
-        </div>
-
-        <!-- PRODUCTO 2 - Dispensador de agua -->
-        <div class="producto-card">
-            <img src="img/dispensador.jpg" alt="Dispensador de agua" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>DISPENSADOR DE AGUA 5 GALONES</h3>
-                <p>Para tornillo de 1.890 in o bomba de botella de agua de corona de 2.165 in. Ideal para hogar, oficina, viajes, campamento. Color blanco.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20DISPENSADOR%20DE%20AGUA%205%20GALONES" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
+            
+            <!-- SOLICITA TU SERVICIO -->
+            <div style="margin: 2rem 15px; padding: 2rem; background: white; border-radius: 12px; border: 2px solid #FFD700; text-align: center;">
+                <h3 style="color: #000000; font-size: 1.5rem; margin-bottom: 1rem;">SOLICITA TU SERVICIO</h3>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 1.5rem;">Contáctanos para agendar una revisión o consultar por reparaciones específicas.</p>
+                <div>
+                    <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20un%20servicio%20de%20reparaci%C3%B3n%20o%20mantenimiento" 
+                       target="_blank"
+                       style="background-color: #25D366; color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; border: 2px solid #25D366;">
+                        SOLICITAR POR WHATSAPP
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- PRODUCTO 3 - Afeitadora recargable -->
-        <div class="producto-card">
-            <img src="img/afeitadora.jpg" alt="Afeitadora recargable" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>AFEITADORA RECARGABLE COBRE</h3>
-                <p>127/220v. Uso máximo 180 minutos. Carga completa en 2.5 horas. Silencioso. Corte hasta 4 mm.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20AFEITADORA%20RECARGABLE%20COBRE" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- CATEGORÍA TECNOLOGÍA -->
-    <h3 class="categoria-titulo">TECNOLOGÍA</h3>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
-        
-        <!-- PRODUCTO 4 - Cargador Inalámbrico Magnético -->
-        <div class="producto-card">
-            <img src="img/cargadormagnetico.jpg" alt="Cargador Inalámbrico" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CARGADOR INALÁMBRICO MAGSAFE</h3>
-                <p>Color blanco. Conector USB-C, entrada 12V, salida 15W. Incluye cable 1m. Compatible con Apple iPhone. Protección contra sobrecarga.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CARGADOR%20INAL%C3%81MBRICO%20MAGSAFE" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 5 - Regulador y Protector de Voltaje -->
-        <div class="producto-card">
-            <img src="img/reguladordevoltage.jpg" alt="Regulador de Voltaje" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>REGULADOR Y PROTECTOR DE VOLTAJE</h3>
-                <p>110 voltios AC. Para electrodomésticos. Uso: voltaje 110 voltios AC.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20REGULADOR%20Y%20PROTECTOR%20DE%20VOLTAJE" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 6 - Regleta Extensión 15 pies -->
-        <div class="producto-card">
-            <img src="img/extencioncable.jpg" alt="Regleta Extensión" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>REGLETA EXTENSIÓN 15 PIES</h3>
-                <p>Cable conectado a tierra, alta resistencia interior/exterior, flexible y duradero. Resistente a temperaturas extremas. Color brillante.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20REGLETA%20EXTENSI%C3%93N%2015%20PIES" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 7 - Cable USB-A a Lightning -->
-        <div class="producto-card">
-            <img src="img/cable_usb_c.jpg" alt="Cable Lightning" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CABLE USB-A A LIGHTNING 1M</h3>
-                <p>Diseñado para dispositivos Apple. Conectividad rápida y eficiente. Certificado MFi. Longitud 1 metro.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CABLE%20USB-A%20A%20LIGHTNING%201M" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 8 - Memoria Kingston Micro SD 64GB -->
-        <div class="producto-card">
-            <img src="img/memoria64gb.jpg" alt="Memoria Micro SD" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>MEMORIA KINGSTON MICRO SD 64GB</h3>
-                <p>Tarjeta microSDHC/microSDXC Clase 10 UHS-I. Velocidad lectura 45MB/s, escritura 10MB/s. Factor de forma pequeño. Duradera.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20MEMORIA%20KINGSTON%20MICRO%20SD%2064GB" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 9 - Power Banks -->
-        <div class="producto-card">
-            <img src="img/powerbank.jpg" alt="Power Bank" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>POWER BANKS 50000mAh</h3>
-                <p>Baterías portátiles de alta capacidad. Ubicación Mowe. Consulta disponibilidad de modelos.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20POWER%20BANKS%2050000mAh" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 10 - Control Universal -->
-        <div class="producto-card">
-            <img src="img/control_tv.jpg" alt="Control Universal" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CONTROL UNIVERSAL RM-014S+</h3>
-                <p>Compatible con +1000 marcas de TV LCD/LED y Smart TV (Samsung, LG, Sony). Fácil programación. Botones directos Netflix y YouTube. Diseño ergonómico.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CONTROL%20UNIVERSAL%20RM-014S%2B" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 11 - Tira LED -->
-        <div class="producto-card">
-            <img src="img/luces_led.jpg" alt="Tira LED" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>TIRA LED RGB 5M CON FUENTE</h3>
-                <p>Goodyear. Luz multicolor para crear ambientes únicos. Ideal para hogar, oficina. Instalación sencilla, diseño moderno.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20TIRA%20LED%20RGB%205M%20CON%20FUENTE" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 12 - Cargador Xiaomi -->
-        <div class="producto-card">
-            <img src="img/cargadorxiaomi.jpg" alt="Cargador Xiaomi" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CARGADOR XIAOMI 67W</h3>
-                <p>Para Note 11 Pro, Poco X4, X5. Color blanco. Conector USB-C, entrada 12V. Carga super rápida 67W. Cable incluido.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CARGADOR%20XIAOMI%2067W" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 13 - Smart Wireless Sunglasses -->
-        <div class="producto-card">
-            <img src="img/lentesdesolconbluetooth.jpg" alt="Smart Glasses" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>SMART WIRELESS SUNGLASSES</h3>
-                <p>Combina gafas, llamadas y música. Conectividad Bluetooth, micrófono y altavoces integrados.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20SMART%20WIRELESS%20SUNGLASSES" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 14 - USB Data Traveler -->
-        <div class="producto-card">
-            <img src="img/kingston_128gb.jpg" alt="USB Kingston" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>USB DATA TRAVELER KYSON</h3>
-                <p>Elegante estuche metálico sin tapa. Hasta 200 MB/s lectura, 60 MB/s escritura.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20USB%20DATA%20TRAVELER%20KYSON" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 15 - Joystick PS4 -->
-        <div class="producto-card">
-            <img src="img/joystick.jpg" alt="Joystick PS4 Double Motor Azul BT" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>JOYSTICK PS4 DOUBLE MOTOR AZUL BT</h3>
-                <p>Mando inalámbrico Bluetooth con todas las funciones para PS4. DoubleShock, batería 3600mAh, entrada para auricular, diseño ergonómico, cable cargador incluido.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20JOYSTICK%20PS4%20DOUBLE%20MOTOR%20AZUL%20BT" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- CATEGORÍA DEPORTES -->
-    <h3 class="categoria-titulo">DEPORTES</h3>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
-        
-        <!-- PRODUCTO 16 - Tobillera Elástica Deportiva -->
-        <div class="producto-card">
-            <img src="img/tobillera.jpg" alt="Tobillera Elástica" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>TOBILLERA ELÁSTICA DEPORTIVA</h3>
-                <p>Precio: $3500. Medidas: Largo 9cm x Alto 23cm. Ideal para protección deportiva.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20TOBILLERA%20EL%C3%81STICA%20DEPORTIVA" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 17 - Rodillera de Compresión -->
-        <div class="producto-card">
-            <img src="img/rodillera.jpg" alt="Rodillera de Compresión" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>RODILLERA DE COMPRESIÓN</h3>
-                <p>Para ejercicio. Color negro. Unitalla. Composición: NAYLON, Rubber, Spandex. Respirable, correas ajustables. Apto para lavadora.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20RODILLERA%20DE%20COMPRESI%C3%93N" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- CATEGORÍA ACCESORIOS MOTO -->
-    <h3 class="categoria-titulo">ACCESORIOS MOTO</h3>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
-        
-        <!-- PRODUCTO 18 - Cubierta de silicona para moto -->
-        <div class="producto-card">
-            <img src="img/protectordepalanca.jpg" alt="Cubierta para moto" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CUBIERTA SILICONA PARA MOTO</h3>
-                <p>Antideslizante para palanca de freno/embrague. Universal. Dimensiones: 9.5cm x 1.8cm. Compatible con Tmax 530, Cb500x, Vespa, Mt 07, Trk 502x.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CUBIERTA%20SILICONA%20PARA%20MOTO" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 19 - Cubierta de motocicleta universal -->
-        <div class="producto-card">
-            <img src="img/cobertodemoto.jpg" alt="Cubierta para moto" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
-            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
-                <h3>CUBIERTA PROTECTORA PARA MOTO</h3>
-                <p>Para todas las estaciones. Impermeable universal. Protección solar y contra lluvia. Resistente a la intemperie.</p>
-                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20el%20producto%3A%20CUBIERTA%20PROTECTORA%20PARA%20MOTO" 
-                   target="_blank">
-                    SOLICITAR POR WHATSAPP
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <p style="text-align: center; font-size: 1.2em; margin: 3rem 20px; padding: 1rem; background: #FFD700; color: #000000; border-radius: 50px; font-weight: bold;">
-        PRECIOS VARIABLES SEGÚN PEDIDO - ¡CONSULTANOS POR WHATSAPP!
-    </p>
-</section>
-
-<!-- ===== SECCIÓN SERVICIOS ===== -->
-<section id="servicios" class="fade-in-section">
-    <h2>SERVICIOS DE MANTENIMIENTO</h2>
-    <hr>
-    
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; padding: 0 20px;">
-        
-        <!-- SERVICIO 1 - MANTENIMIENTO BÁSICO DE CELULARES -->
-        <div class="servicio-item">
-            <h3> MANTENIMIENTO BÁSICO DE CELULARES</h3>
-            <p>Limpieza, revisión general, cambio de protectores y diagnóstico de problemas comunes.</p>
-        </div>
-
-        <!-- SERVICIO 2 - REPARACIÓN DE CELULARES -->
-        <div class="servicio-item">
-            <h3> REPARACIÓN DE CELULARES</h3>
-            <p>Reparación de pantallas, cambio de conectores, solución de fallas eléctricas y más.</p>
-        </div>
-
-        <!-- SERVICIO 3 - ASESORÍA TÉCNICA -->
-        <div class="servicio-item">
-            <h3> ASESORÍA TÉCNICA</h3>
-            <p>Te ayudamos a elegir el accesorio o repuesto correcto para tu dispositivo.</p>
-        </div>
-    </div>
-    
-    <!-- SOLICITA TU SERVICIO -->
-    <div style="margin: 3rem 20px; padding: 2rem; background: white; border-radius: 12px; border: 2px solid #FFD700; text-align: center;">
-        <h3 style="color: #000000; font-size: 1.8rem; margin-bottom: 1rem;"> SOLICITA TU SERVICIO</h3>
-        <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">Contáctanos para agendar una revisión o consultar por reparaciones específicas.</p>
-        <div style="margin-top: 2rem;">
-            <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20un%20servicio%20de%20reparaci%C3%B3n%20o%20mantenimiento" 
-               target="_blank"
-               style="background-color: #25D366; color: white; text-decoration: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: all 0.3s ease; border: 2px solid #25D366;"
-               onmouseover="this.style.backgroundColor='#128C7E'; this.style.borderColor='#128C7E';"
-               onmouseout="this.style.backgroundColor='#25D366'; this.style.borderColor='#25D366';">
-                SOLICITAR POR WHATSAPP
-            </a>
-        </div>
-    </div>
-</section>
         <!-- ===== SECCIÓN CONTACTO ===== -->
         <section id="contacto" class="fade-in-section">
             <h2>CONTACTO Y PEDIDOS</h2>
@@ -1103,7 +1068,7 @@
                 
                 <div>
                     <h3>SOLICITA TU PEDIDO</h3>
-                    <form class="formulario-contacto">
+                    <form class="formulario-contacto" onsubmit="event.preventDefault(); alert('Funcionalidad de envío de formulario - Los datos serían enviados a: ' + document.querySelector('input[name=email]').value);">
                         <input type="text" placeholder="Nombre completo" name="nombre" required>
                         <input type="text" placeholder="Teléfono / WhatsApp" name="telefono" required>
                         <input type="email" placeholder="Email (opcional)" name="email">
@@ -1113,8 +1078,8 @@
                 </div>
             </div>
             
-            <div style="margin: 3rem 20px; text-align: center;">
-                <p style="font-size: 1.3em; background: #FFD700; color: #000000; padding: 1rem; border-radius: 50px; font-weight: bold;">
+            <div style="margin: 2rem 15px; text-align: center;">
+                <p style="font-size: 1.2rem; background: #FFD700; color: #000000; padding: 1rem; border-radius: 50px; font-weight: bold;">
                     ¡Haz tu pedido hoy y recíbelo en la puerta de tu casa!
                 </p>
             </div>
@@ -1153,7 +1118,6 @@
 
     <script>
         function showSection(sectionId) {
-            console.log('Mostrando sección:', sectionId);
             document.querySelectorAll('section').forEach(s => {
                 s.classList.remove('active-section');
                 s.classList.remove('visible');
@@ -1166,13 +1130,10 @@
                     selected.classList.add('visible');
                 }, 50);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                console.error('No se encontró la sección:', sectionId);
             }
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM cargado, mostrando nosotros');
             showSection('nosotros');
         });
 
@@ -1181,7 +1142,6 @@
             btn.classList.toggle('active');
         }
 
-        // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             const btn = document.getElementById('professionalSocialBtn');
             if (!btn.contains(event.target) && btn.classList.contains('active')) {
@@ -1189,7 +1149,6 @@
             }
         });
 
-        // Prevenir que el menú se cierre al hacer clic en el icono de WhatsApp
         document.querySelectorAll('.professional-social-item').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1198,6 +1157,7 @@
     </script>
 </body>
 </html>
+
 
 
 
