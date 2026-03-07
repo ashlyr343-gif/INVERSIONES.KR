@@ -3,55 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>INVERSIONESKR RAMOS</title>
+    <title>INVERSIONES KR - Tocoa, Colón</title>
     <style>
-        /* ===== RESET Y VARIABLES GLOBALES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-primary: #8b0000;
-            --color-primary-dark: #5c0000;
-            --color-secondary: #1e2d3b;
-            --color-text: #333;
-            --color-white: #ffffff;
-            --color-gray-light: #f7f7f7;
-            --color-gray: #e0e0e0;
-            --shadow-sm: 0 4px 8px rgba(0,0,0,0.1);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.2);
-            --shadow-lg: 0 15px 35px rgba(0,0,0,0.3);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
-        }
-
+        /* --- ESTILOS BÁSICOS --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            color: #333;
             overflow-x: hidden;
-            background-color: #fafafa;
+            background-color: #f5f5f5;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ===== HEADER RESPONSIVE ===== */
+        /* Encabezado (Header) - NEGRO */
         header {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: var(--color-white);
-            padding: 0.8rem 0;
+            background-color: #000000;
+            color: white;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-md);
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -59,20 +33,12 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
-            flex-wrap: wrap;
         }
-
         .logo img {
-            max-height: 60px;
+            max-height: 70px;
             width: auto;
-            transition: var(--transition);
+            display: block;
         }
-
-        .logo img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Menú de navegación - Desktop */
         nav ul {
             list-style: none;
             padding: 0;
@@ -80,447 +46,350 @@
             display: flex;
             gap: 2rem;
         }
-
         nav a {
-            color: var(--color-white);
+            color: #FFD700;
             text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            padding-bottom: 5px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-size: 1.1em;
         }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffd700;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
         nav a:hover {
-            color: #ffd700;
+            color: white;
         }
 
-        /* ===== MAIN CONTENT RESPONSIVE ===== */
+        footer {
+            background-color: #000000;
+            color: #FFD700;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .whatsapp-footer-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #25D366;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .whatsapp-footer-icon:hover {
+            transform: scale(1.2);
+            background-color: #128C7E;
+        }
+        .whatsapp-footer-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
         }
-
+        
+        /* TODAS LAS SECCIONES OCULTAS POR DEFECTO */
         section {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
+            display: none;
+            margin: 0;
+            padding: 0;
         }
-
+        
+        /* SECCIÓN ACTIVA - SOLO UNA A LA VEZ */
+        section.active-section {
+            display: block;
+        }
+        
         h1, h2, h3 {
-            color: var(--color-secondary);
-            line-height: 1.2;
+            color: #000000;
         }
-
         h1 {
-            font-size: clamp(2rem, 5vw, 2.5em);
+            font-size: 2.5em;
         }
-
         h2 {
-            font-size: clamp(1.8rem, 4vw, 2em);
+            font-size: 2em;
             text-align: center;
             margin-bottom: 1rem;
+            padding-top: 1rem;
+            color: #000000;
         }
-
         h3 {
-            font-size: clamp(1.3rem, 3vw, 1.5em);
+            font-size: 1.5em;
         }
-
         hr {
             border: 0;
-            border-top: 5px solid var(--color-primary);
+            border-top: 5px solid #FFD700;
             width: 100px;
             margin: 1rem auto;
         }
-
-        p {
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-
-        /* ===== GRID RESPONSIVO ===== */
+        
         .grid-3-columnas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 2rem 0;
         }
-
-        /* ===== TARJETAS RESPONSIVAS ===== */
-        .servicio-card, .proyecto-card {
-            background-color: var(--color-gray-light);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
+        
+        .producto-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            border: 1px solid #FFD700;
         }
-
-        .servicio-card:hover, .proyecto-card:hover {
+        
+        .producto-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 20px 30px rgba(255,215,0,0.3);
+            border-color: #000000;
         }
-
-        .servicio-card img {
+        
+        .producto-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: all 0.5s ease;
+            display: block;
         }
-
-        .servicio-card:hover img {
+        
+        .producto-card:hover img {
             transform: scale(1.1);
         }
-
-        .servicio-card h3,
-        .servicio-card p {
-            padding: 1rem 1.5rem 0;
+        
+        .producto-card h3 {
+            margin: 1rem 1.5rem 0.5rem;
+            color: #000000;
         }
-
-        .servicio-card p {
-            padding-bottom: 1.5rem;
-            flex-grow: 1;
+        
+        .producto-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
         }
-
-        /* ===== PROYECTOS RESPONSIVOS ===== */
-        .proyecto-card {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .proyecto-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .proyecto-card:hover img {
-            transform: scale(1.15);
-        }
-
-        .proyecto-card .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .proyecto-card:hover .overlay {
-            transform: translateY(0);
-        }
-
-        .proyecto-card .overlay h3 {
-            color: white;
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
-        }
-
-        /* ===== SECCIÓN NOSOTROS RESPONSIVE ===== */
-        .nosotros-grid {
+        
+        .mision-vision-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-
-        /* ===== CLIENTES RESPONSIVE ===== */
-        .clientes-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin: 2rem 0;
+            padding: 0 20px;
         }
-
-        .cliente-placeholder {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(145deg, #f0f0f0, #d9d9d9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.9em;
+        
+        .mision-card, .vision-card {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            padding: 1rem;
+            transition: all 0.4s ease;
+            border: 2px solid #FFD700;
         }
-
-        .cliente-placeholder:hover {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(145deg, var(--color-primary), #a52a2a);
-            color: white;
-            box-shadow: var(--shadow-md);
+        
+        .mision-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.3);
+            border-color: #000000;
         }
-
-        /* ===== CONTACTO RESPONSIVE ===== */
+        
+        .mision-card h3, .vision-card h3 {
+            color: #000000;
+            font-size: 2em;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mision-card h3::after, .vision-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 2px;
+        }
+        
+        .logo-dinamico {
+            background: #000000;
+            border-top: 3px solid #FFD700;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .logo-dinamico:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.3);
+        }
+        
+        .logo-dinamico:hover img {
+            transform: scale(1.05);
+        }
+        
+        .logo-dinamico {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .logo-dinamico img {
+            transition: all 0.4s ease;
+        }
+        
         .contacto-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
+            padding: 0 20px;
         }
-
-        .mapa-placeholder {
-            background-color: var(--color-gray);
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: #666;
-            transition: var(--transition);
+        
+        .info-contacto {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #FFD700;
         }
-
-        .mapa-placeholder:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-md);
+        
+        .info-contacto h3 {
+            color: #000000;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-
+        
         .formulario-contacto {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #FFD700;
         }
-
+        
         .formulario-contacto input,
         .formulario-contacto textarea {
             padding: 12px;
-            border: 2px solid var(--color-gray);
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-family: inherit;
-            transition: var(--transition);
-            font-size: 16px; /* Evita zoom en iOS */
+            transition: all 0.3s ease;
         }
-
+        
         .formulario-contacto input:focus,
         .formulario-contacto textarea:focus {
-            border-color: var(--color-primary);
+            border-color: #FFD700;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(139,0,0,0.1);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(255,215,0,0.2);
         }
-
+        
         .formulario-contacto button {
-            background-color: var(--color-primary);
-            color: white;
+            background-color: #000000;
+            color: #FFD700;
             padding: 12px 24px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1.1em;
             font-weight: bold;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #FFD700;
         }
-
+        
         .formulario-contacto button:hover {
-            background-color: #a52a2a;
+            background-color: #FFD700;
+            color: #000000;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
         }
-
-        /* ===== ESTADÍSTICAS RESPONSIVE ===== */
-        .estadisticas {
-            background-color: var(--color-primary);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            margin: 0 -20px;
-            width: calc(100% + 40px);
-        }
-
-        .estadisticas .grid-3-columnas {
-            color: white;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .estadisticas h3 {
-            color: white;
-            font-size: clamp(2rem, 5vw, 2.5em);
-            margin-bottom: 0.2em;
-        }
-
-        /* ===== FOOTER RESPONSIVE ===== */
-        footer {
-            background-color: var(--color-primary);
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
             padding: 0 20px;
         }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.2);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
-            color: white;
-            font-size: 20px;
-            text-decoration: none;
-            margin: 0 5px;
+        
+        .servicio-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #FFD700;
+            text-align: center;
+            transition: all 0.3s ease;
         }
-
-        .social-icon:hover {
-            transform: scale(1.2);
-            background-color: #ffd700;
-            color: var(--color-primary);
+        
+        .servicio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+            border-color: #000000;
         }
-
-        /* ===== ANIMACIONES ===== */
+        
+        .servicio-item h3 {
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+        
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
         }
-
+        
         .fade-in-section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* ===== MEDIA QUERIES ESPECÍFICOS ===== */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 10px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            .logo img {
-                max-height: 50px;
-            }
-
-            .proyecto-card .overlay {
-                padding: 1.5rem 1rem;
-            }
-
-            .proyecto-card .overlay h3 {
-                font-size: 1.1rem;
-            }
-
-            .proyecto-card .overlay p {
-                font-size: 0.8rem;
-            }
-
-            .cliente-placeholder {
-                width: 100px;
-                height: 100px;
-                font-size: 0.8rem;
-            }
-
-            .estadisticas {
-                padding: 2rem 1rem;
-            }
+        
+        .categoria-titulo {
+            font-size: 1.8em;
+            color: #000000;
+            margin: 2rem 0 1rem 20px;
+            border-left: 5px solid #FFD700;
+            padding-left: 1rem;
         }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .grid-3-columnas {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contacto-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cliente-placeholder {
-                width: 80px;
-                height: 80px;
-                font-size: 0.7rem;
-            }
-
-            .servicio-card img,
-            .proyecto-card img {
-                height: 180px;
-            }
-        }
-
-        /* ===== BOTÓN FLOTANTE RESPONSIVE (YA INCLUIDO) ===== */
+        
+        /* ===== BOTÓN FLOTANTE CORREGIDO - PUNTOS CENTRADOS ===== */
         .professional-social-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 99999;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         .professional-main-btn {
             width: 65px;
             height: 65px;
-            background: linear-gradient(145deg, #8b0000, #5c0000);
+            background: #000000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+            transition: all 0.3s ease;
+            border: 3px solid #FFD700;
             position: relative;
-            z-index: 100000;
         }
-
-        .professional-main-btn:hover {
-            transform: scale(1.1);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 15px 35px rgba(139, 0, 0, 0.6);
-        }
-
+        
+        /* TRES PUNTOS HORIZONTALES - PERFECTAMENTE CENTRADOS */
         .professional-main-btn .dots-icon {
-            color: white;
+            color: #FFD700;
             font-size: 40px;
             line-height: 1;
             font-weight: 400;
@@ -531,11 +400,12 @@
             width: 100%;
             height: 100%;
             letter-spacing: 2px;
-            margin-top: -6px;
+            transform: translateY(-2px); /* Ajuste fino para centrar verticalmente */
         }
-
+        
+        /* ICONO DE CERRAR (X) - CENTRADO */
         .professional-main-btn .close-icon {
-            color: white;
+            color: #FFD700;
             font-size: 40px;
             line-height: 1;
             font-weight: 300;
@@ -549,20 +419,20 @@
             width: 100%;
             height: 100%;
         }
-
+        
         .professional-main-btn.active .dots-icon {
             opacity: 0;
             transform: scale(0.5) rotate(90deg);
         }
-
+        
         .professional-main-btn.active .close-icon {
             opacity: 1;
             transform: scale(1) rotate(0deg);
         }
-
+        
         .professional-icons-panel {
             position: absolute;
-            bottom: 0;
+            bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -571,133 +441,46 @@
             gap: 15px;
             pointer-events: none;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            padding-bottom: 80px;
+            transition: all 0.3s ease;
         }
-
+        
         .professional-social-btn.active .professional-icons-panel {
             pointer-events: all;
             opacity: 1;
         }
-
+        
         .professional-social-item {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: white;
+            background: #25D366;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            margin: 0;
         }
-
-        .professional-social-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .professional-social-item:hover::before {
-            left: 100%;
-        }
-
+        
         .professional-social-item:hover {
             transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: #128C7E;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
-
+        
         .professional-social-item svg {
-            width: 28px;
-            height: 28px;
-            transition: transform 0.3s ease;
-            z-index: 2;
+            width: 32px;
+            height: 32px;
+            fill: white;
         }
-
-        .professional-social-item:hover svg {
-            transform: scale(1.1);
-        }
-
-        .professional-social-item::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            right: 65px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.85);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .professional-social-item:hover::after {
-            opacity: 1;
-            right: 75px;
-        }
-
-        .professional-social-item.whatsapp {
-            background: #25D366;
-        }
-        .professional-social-item.whatsapp svg { fill: white; }
-
-        .professional-social-item.facebook {
-            background: #1877F2;
-        }
-        .professional-social-item.facebook svg { fill: white; }
-
-        .professional-social-item.instagram {
-            background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
-        }
-        .professional-social-item.instagram svg { fill: white; }
-
-        .professional-social-item.tiktok {
-            background: #000000;
-        }
-        .professional-social-item.tiktok svg { fill: white; }
-
-        .professional-social-item.youtube {
-            background: #FF0000;
-        }
-        .professional-social-item.youtube svg { fill: white; }
-
-        .professional-social-item.linkedin {
-            background: #0077B5;
-        }
-        .professional-social-item.linkedin svg { fill: white; }
-
+        
         .professional-social-btn.active .professional-social-item {
-            animation: slideUpCentered 0.3s ease forwards;
+            animation: slideUp 0.3s ease forwards;
             opacity: 0;
             transform: translateY(20px);
         }
-
-        .professional-social-btn.active .professional-social-item:nth-child(1) { animation-delay: 0.05s; }
-        .professional-social-btn.active .professional-social-item:nth-child(2) { animation-delay: 0.1s; }
-        .professional-social-btn.active .professional-social-item:nth-child(3) { animation-delay: 0.15s; }
-        .professional-social-btn.active .professional-social-item:nth-child(4) { animation-delay: 0.2s; }
-        .professional-social-btn.active .professional-social-item:nth-child(5) { animation-delay: 0.25s; }
-        .professional-social-btn.active .professional-social-item:nth-child(6) { animation-delay: 0.3s; }
-
-        @keyframes slideUpCentered {
+        
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -707,59 +490,57 @@
                 transform: translateY(0);
             }
         }
-
+        
+        /* RESPONSIVE MÓVIL */
         @media (max-width: 768px) {
+            .grid-3-columnas, .mision-vision-grid, .contacto-grid, .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
             .professional-main-btn {
                 width: 55px;
                 height: 55px;
             }
+            
             .professional-main-btn .dots-icon {
                 font-size: 35px;
-                margin-top: -5px;
+                transform: translateY(-1px); /* Ajuste para móvil */
             }
+            
             .professional-main-btn .close-icon {
                 font-size: 35px;
             }
+            
             .professional-social-item {
-                width: 48px;
-                height: 48px;
+                width: 55px;
+                height: 55px;
             }
+            
             .professional-social-item svg {
-                width: 24px;
-                height: 24px;
+                width: 28px;
+                height: 28px;
             }
-            .professional-social-item::after {
-                font-size: 11px;
-                padding: 4px 10px;
-                right: 55px;
-            }
-            .professional-social-item:hover::after {
-                right: 60px;
-            }
-            .professional-icons-panel {
-                gap: 12px;
-                padding-bottom: 70px;
-            }
+            
             .professional-social-btn {
                 bottom: 20px;
                 right: 20px;
             }
-        }
-
-        .professional-main-btn::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(0);
-            transition: transform 0.5s ease;
-        }
-
-        .professional-main-btn.active::before {
-            transform: scale(2);
-            opacity: 0;
+            
+            .professional-icons-panel {
+                bottom: 70px;
+                gap: 12px;
+            }
         }
     </style>
 </head>
@@ -769,15 +550,14 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="logo.jpg" alt="Logo Constructora Cosco">
+                <img src="img/logo-empresa.jpg" alt="INVERSIONES KR">
             </div>
             <nav>
                 <ul>
-                    <li><a href="#inicio">COSCO</a></li>
-                    <li><a href="#servicios">SERVICIOS</a></li>
-                    <li><a href="#nosotros">NOSOTROS</a></li>
-                    <li><a href="#proyectos">PROYECTOS</a></li>
-                    <li><a href="#contacto">CONTACTO</a></li>
+                    <li><a onclick="showSection('nosotros')">NOSOTROS</a></li>
+                    <li><a onclick="showSection('productos')">PRODUCTOS</a></li>
+                    <li><a onclick="showSection('servicios')">SERVICIOS</a></li>
+                    <li><a onclick="showSection('contacto')">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
@@ -785,147 +565,475 @@
 
     <!-- ===== MAIN ===== -->
     <main>
-        <!-- Inicio -->
-        <section id="inicio" class="fade-in-section" style="text-align: center; padding: 4rem 0;">
-            <h1>LÍDERES EN LA INDUSTRIA DE LA CONSTRUCCIÓN</h1>
-        </section>
+       <!-- ===== SECCIÓN NOSOTROS ===== -->
+<section id="nosotros" class="fade-in-section visible active-section">
+    <!-- LOGO DE LA EMPRESA - ANCHO COMPLETO -->
+    <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: -2rem; margin-bottom: 2rem; padding: 0;">
+        <div class="logo-dinamico" style="background-color: #000000; box-shadow: 0 15px 40px rgba(255,215,0,0.2); text-align: center; border-top: 3px solid #FFD700; border-bottom: 3px solid #FFD700; transition: all 0.4s ease; width: 100%; overflow: hidden; margin: 0; padding: 0;">
+            <img src="img/logo-empresa.jpg" alt="INVERSIONES KR" style="width: 100%; height: 350px; object-fit: contain; display: block; filter: drop-shadow(0 5px 15px rgba(255,215,0,0.3)); transition: transform 0.5s ease; margin: 0; padding: 0; vertical-align: bottom; background-color: #000000;">
+        </div>
+    </div>
 
-        <!-- Servicios -->
-        <section id="servicios" class="fade-in-section">
-            <h2>SERVICIOS</h2>
-            <hr>
-            <div class="grid-3-columnas">
-                <div class="servicio-card">
-                    <img src="gestion-proyectos.jpg" alt="Project Management">
-                    <h3>PROJECT MANAGEMENT</h3>
-                    <p>Planificación, ejecución, control y cierre de proyectos.</p>
-                </div>
-                <div class="servicio-card">
-                    <img src="img/Punta-Sal.jpg" alt="Construcción">
-                    <h3>CONSTRUCCIÓN</h3>
-                    <p>Servicio completo de ingeniería y construcción.</p>
-                </div>
-                <div class="servicio-card">
-                    <img src="agregados.jpg" alt="Venta de Agregados">
-                    <h3>VENTA DE AGREGADOS</h3>
-                    <p>Venta de agregados pétreos y productos derivados del cemento.</p>
-                </div>
+    <h2>INVERSIONES KR</h2>
+    <hr>
+    
+    <!-- MISIÓN Y VISIÓN -->
+    <div class="mision-vision-grid">
+        <div class="mision-card">
+            <h3>MISIÓN</h3>
+            <p>Ofrecer productos tecnológicos, artículos para el hogar y servicios de mantenimiento de celulares de calidad, a precios accesibles, brindando atención personalizada y entrega a domicilio en Tocoa, Colón. Buscamos satisfacer las necesidades de nuestros clientes mientras fortalecemos nuestro emprendimiento para crecer y consolidarnos en el mercado.</p>
+        </div>
+        <div class="vision-card">
+            <h3>VISIÓN</h3>
+            <p>Convertir nuestro emprendimiento en una empresa sólida y reconocida en Tocoa, Colón, líder en ventas por pedido de productos tecnológicos y artículos para el hogar, destacándonos por nuestra confiabilidad, variedad de productos, calidad en el servicio y compromiso con la satisfacción del cliente.</p>
+        </div>
+    </div>
+
+    <!-- QUIÉNES SOMOS -->
+    <div style="margin: 3rem 20px;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #FFD700; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h3 style="color: #000000; font-size: 2em; text-align: center; margin-bottom: 1.5rem;">QUIÉNES SOMOS</h3>
+            <p style="font-size: 1.2em; line-height: 1.8; text-align: justify; color: #555; max-width: 900px; margin: 0 auto;">
+                <strong>INVERSIONES KR</strong> es un emprendimiento ubicado en Tocoa, Colón, dedicado a la venta de productos tecnológicos, artículos para el hogar y de uso personal. Nuestro modelo de negocio se basa en la venta por pedido con entrega gratuita a domicilio en la zona, lo que permite a nuestros clientes acceder fácilmente a los productos que necesitan.
+            <p style="font-size: 1.2em; line-height: 1.8; text-align: justify; color: #555; max-width: 900px; margin: 1.5rem auto 0 auto;">
+                Actualmente nos encontramos en una etapa de emprendimiento, trabajando para crecer, ampliar nuestra oferta de productos y fortalecer nuestra presencia en el mercado, con el objetivo de convertirnos en una empresa reconocida en la región.
+            </p>
+        </div>
+    </div>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <h2 style="margin-top: 3rem;">¿POR QUÉ ELEGIRNOS?</h2>
+    <hr>
+    <div class="grid-3-columnas" style="padding: 0 20px;">
+        <div class="producto-card" style="text-align: center; padding: 2rem;">
+            <h3>ENTREGA GRATIS</h3>
+            <p>Llevamos tus pedidos a la puerta de tu casa sin costo adicional en toda la zona de Tocoa.</p>
+        </div>
+        <div class="producto-card" style="text-align: center; padding: 2rem;">
+            <h3>PRECIOS ACCESIBLES</h3>
+            <p>Ofrecemos productos de calidad a precios que se ajustan a tu bolsillo.</p>
+        </div>
+        <div class="producto-card" style="text-align: center; padding: 2rem;">
+            <h3>ATENCIÓN PERSONALIZADA</h3>
+            <p>Te asesoramos para encontrar exactamente lo que necesitas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECCIÓN PRODUCTOS ===== -->
+<section id="productos" class="fade-in-section">
+    <h2>PRODUCTOS</h2>
+    <hr>
+    <p style="text-align: center; font-size: 1.2em; margin-bottom: 2rem; color: #000000;">Tecnología · Hogar · Accesorios · Deportes</p>
+    
+    <!-- CATEGORÍA HOGAR -->
+    <h3 class="categoria-titulo">HOGAR</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
+        
+        <!-- PRODUCTO 1 - Kit de manicura y pedicura -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/kitmanicure.jpg" alt="Kit de manicura y pedicura" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">KIT DE MANICURA Y PEDICURA</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Juego de 18 cortaúñas profesionales, cortador de cutículas de acero inoxidable, kit de manicura y pedicura con caja de viaje. Color rosa.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20KIT%20DE%20MANICURA%20Y%20PEDICURA%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23kit-manicura" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Sobre Nosotros -->
-        <section id="nosotros" class="fade-in-section">
-            <h2>SOBRE NOSOTROS</h2>
-            <hr>
-            <div class="nosotros-grid">
-                <div>
-                    <p>En Constructora Cosco tenemos más de 25 años de experiencia en la industria de la construcción en Honduras. Estamos calificados en Categoría A1 como contratistas del estado y registrados en el Colegio de Ingenieros.</p>
-                    <p>Tenemos experiencia en obras públicas y privadas: carreteras pavimentadas y no pavimentadas, puentes, dragados y más. Contamos con un departamento de ventas de agregados y un laboratorio certificado.</p>
-                </div>
-                <div class="mapa-placeholder">[Tu imagen aquí]</div>
+        <!-- PRODUCTO 2 - Dispensador de agua -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/dispensador.jpg" alt="Dispensador de agua" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">DISPENSADOR DE AGUA 5 GALONES</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Para tornillo de 1.890 in o bomba de botella de agua de corona de 2.165 in. Ideal para hogar, oficina, viajes, campamento. Color blanco.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20DISPENSADOR%20DE%20AGUA%205%20GALONES%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23dispensador-agua" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Estadísticas -->
-        <section class="estadisticas fade-in-section">
-            <div class="grid-3-columnas">
-                <div>
-                    <h3>1998</h3>
-                    <p>AÑO DE FUNDACIÓN</p>
-                </div>
-                <div>
-                    <h3>210</h3>
-                    <p>PROYECTOS REALIZADOS</p>
-                </div>
-                <div>
-                    <h3>100%</h3>
-                    <p>PROYECTOS A TIEMPO</p>
-                </div>
+        <!-- PRODUCTO 3 - Afeitadora recargable -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/afeitadora.jpg" alt="Afeitadora recargable" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">AFEITADORA RECARGABLE COBRE</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">127/220v. Uso máximo 180 minutos. Carga completa en 2.5 horas. Silencioso. Corte hasta 4 mm.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20AFEITADORA%20RECARGABLE%20COBRE%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23afeitadora" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Proyectos -->
-        <section id="proyectos" class="fade-in-section">
-            <h2>PROYECTOS</h2>
-            <hr>
-            <div class="grid-3-columnas">
-                <div class="proyecto-card">
-                    <img src="proyecto1.jpg" alt="Puente de Concreto">
-                    <div class="overlay">
-                        <h3>Puente de Concreto</h3>
-                        <p>Construcción de puente vehicular</p>
-                    </div>
-                </div>
-                <div class="proyecto-card">
-                    <img src="proyecto2.jpg" alt="Trabajo de Terracería">
-                    <div class="overlay">
-                        <h3>Trabajo de Terracería</h3>
-                        <p>Movimiento de tierras y nivelación</p>
-                    </div>
-                </div>
-                <div class="proyecto-card">
-                    <img src="proyecto3.jpg" alt="Carretera de Asfalto">
-                    <div class="overlay">
-                        <h3>Carretera de Asfalto</h3>
-                        <p>Pavimentación asfáltica</p>
-                    </div>
-                </div>
-                <div class="proyecto-card">
-                    <img src="img/Punta-Sal.jpg" alt="Carretera de Concreto">
-                    <div class="overlay">
-                        <h3>Carretera de Concreto</h3>
-                        <p>Pavimentación de concreto hidráulico</p>
-                    </div>
-                </div>
+    <!-- CATEGORÍA TECNOLOGÍA -->
+    <h3 class="categoria-titulo">TECNOLOGÍA</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
+        
+        <!-- PRODUCTO 4 - Cargador Inalámbrico Magnético -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/cargadormagnetico.jpg" alt="Cargador Inalámbrico" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CARGADOR INALÁMBRICO MAGSAFE</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Color blanco. Conector USB-C, entrada 12V, salida 15W. Incluye cable 1m. Compatible con Apple iPhone. Protección contra sobrecarga.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CARGADOR%20INAL%C3%81MBRICO%20MAGSAFE%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23cargador-inalambrico" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Clientes -->
-        <section class="fade-in-section">
-            <h2>CLIENTES</h2>
-            <hr>
-            <div class="clientes-grid">
-                <div class="cliente-placeholder">Logo Cliente 1</div>
-                <div class="cliente-placeholder">Logo Cliente 2</div>
-                <div class="cliente-placeholder">Logo Cliente 3</div>
-                <div class="cliente-placeholder">Logo Cliente 4</div>
-                <div class="cliente-placeholder">Logo Cliente 5</div>
-                <div class="cliente-placeholder">Logo Cliente 6</div>
+        <!-- PRODUCTO 5 - Regulador y Protector de Voltaje -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/reguladordevoltage.jpg" alt="Regulador de Voltaje" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">REGULADOR Y PROTECTOR DE VOLTAJE</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">110 voltios AC. Para electrodomésticos. Uso: voltaje 110 voltios AC.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20REGULADOR%20Y%20PROTECTOR%20DE%20VOLTAJE%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23regulador" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
             </div>
+        </div>
+
+        <!-- PRODUCTO 6 - Regleta Extensión 15 pies -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/extencioncable.jpg" alt="Regleta Extensión" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">REGLETA EXTENSIÓN 15 PIES</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Cable conectado a tierra, alta resistencia interior/exterior, flexible y duradero. Resistente a temperaturas extremas. Color brillante.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20REGLETA%20EXTENSI%C3%93N%2015%20PIES%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23regleta" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 7 - Cable USB-A a Lightning -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/cable_usb_c.jpg" alt="Cable Lightning" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CABLE USB-A A LIGHTNING 1M</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Diseñado para dispositivos Apple. Conectividad rápida y eficiente. Certificado MFi. Longitud 1 metro.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CABLE%20USB-A%20A%20LIGHTNING%201M%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23cable-lightning" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 8 - Memoria Kingston Micro SD 64GB -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/memoria64gb.jpg" alt="Memoria Micro SD" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">MEMORIA KINGSTON MICRO SD 64GB</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Tarjeta microSDHC/microSDXC Clase 10 UHS-I. Velocidad lectura 45MB/s, escritura 10MB/s. Factor de forma pequeño. Duradera.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20MEMORIA%20KINGSTON%20MICRO%20SD%2064GB%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23memoria" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 9 - Power Banks -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/powerbank.jpg" alt="Power Bank" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">POWER BANKS 50000mAh</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Baterías portátiles de alta capacidad. Ubicación Mowe. Consulta disponibilidad de modelos.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20POWER%20BANKS%2050000mAh%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23powerbank" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 10 - Control Universal -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/control_tv.jpg" alt="Control Universal" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CONTROL UNIVERSAL RM-014S+</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Compatible con +1000 marcas de TV LCD/LED y Smart TV (Samsung, LG, Sony). Fácil programación. Botones directos Netflix y YouTube. Diseño ergonómico.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CONTROL%20UNIVERSAL%20RM-014S%2B%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23control-universal" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 11 - Tira LED -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/luces_led.jpg" alt="Tira LED" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">TIRA LED RGB 5M CON FUENTE</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Goodyear. Luz multicolor para crear ambientes únicos. Ideal para hogar, oficina. Instalación sencilla, diseño moderno.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20TIRA%20LED%20RGB%205M%20CON%20FUENTE%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23tira-led" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 12 - Cargador Xiaomi -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/cargadorxiaomi.jpg" alt="Cargador Xiaomi" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CARGADOR XIAOMI 67W</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Para Note 11 Pro, Poco X4, X5. Color blanco. Conector USB-C, entrada 12V. Carga super rápida 67W. Cable incluido.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CARGADOR%20XIAOMI%2067W%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23cargador-xiaomi" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 13 - Smart Wireless Sunglasses -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/lentesdesolconbluetooth.jpg" alt="Smart Glasses" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">SMART WIRELESS SUNGLASSES</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Combina gafas, llamadas y música. Conectividad Bluetooth, micrófono y altavoces integrados.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20SMART%20WIRELESS%20SUNGLASSES%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23smart-glasses" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 14 - USB Data Traveler -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/kingston_128gb.jpg" alt="USB Kingston" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">USB DATA TRAVELER KYSON</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Elegante estuche metálico sin tapa. Hasta 200 MB/s lectura, 60 MB/s escritura.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20USB%20DATA%20TRAVELER%20KYSON%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23usb" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 15 - Joystick PS4 -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/joystick.jpg" alt="Joystick PS4 Double Motor Azul BT" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">JOYSTICK PS4 DOUBLE MOTOR AZUL BT</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Mando inalámbrico Bluetooth con todas las funciones para PS4. DoubleShock, batería 3600mAh, entrada para auricular, diseño ergonómico, cable cargador incluido.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20JOYSTICK%20PS4%20DOUBLE%20MOTOR%20AZUL%20BT%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23joystick-ps4" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA DEPORTES -->
+    <h3 class="categoria-titulo">DEPORTES</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
+        
+        <!-- PRODUCTO 16 - Tobillera Elástica Deportiva -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/tobillera.jpg" alt="Tobillera Elástica" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">TOBILLERA ELÁSTICA DEPORTIVA</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Precio: $3500. Medidas: Largo 9cm x Alto 23cm. Ideal para protección deportiva.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20TOBILLERA%20EL%C3%81STICA%20DEPORTIVA%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23tobillera" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 17 - Rodillera de Compresión -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/rodillera.jpg" alt="Rodillera de Compresión" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">RODILLERA DE COMPRESIÓN</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Para ejercicio. Color negro. Unitalla. Composición: NAYLON, Rubber, Spandex. Respirable, correas ajustables. Apto para lavadora.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20RODILLERA%20DE%20COMPRESI%C3%93N%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23rodillera" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORÍA ACCESORIOS MOTO -->
+    <h3 class="categoria-titulo">ACCESORIOS MOTO</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 20px; margin-bottom: 3rem;">
+        
+        <!-- PRODUCTO 18 - Cubierta de silicona para moto -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/protectordepalanca.jpg" alt="Cubierta para moto" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CUBIERTA SILICONA PARA MOTO</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Antideslizante para palanca de freno/embrague. Universal. Dimensiones: 9.5cm x 1.8cm. Compatible con Tmax 530, Cb500x, Vespa, Mt 07, Trk 502x.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CUBIERTA%20SILICONA%20PARA%20MOTO%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23cubierta-moto" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 19 - Cubierta de motocicleta universal -->
+        <div class="producto-card" style="display: flex; flex-direction: column; height: 540px; width: 100%;">
+            <img src="img/cobertodemoto.jpg" alt="Cubierta para moto" style="width: 100%; height: 250px; object-fit: cover; object-position: center; background-color: #f0f0f0; display: block; flex-shrink: 0;">
+            <div style="padding: 1.2rem 1.2rem 1.5rem 1.2rem; display: flex; flex-direction: column; flex: 1; width: 100%; box-sizing: border-box;">
+                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: bold; line-height: 1.4; min-height: 3.3rem; max-height: 3.3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%;">CUBIERTA PROTECTORA PARA MOTO</h3>
+                <p style="color: #555; margin: 0 0 0.8rem 0; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.95rem; line-height: 1.5; width: 100%;">Para todas las estaciones. Impermeable universal. Protección solar y contra lluvia. Resistente a la intemperie.</p>
+                <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20producto%3A%20CUBIERTA%20PROTECTORA%20PARA%20MOTO%20-%20https%3A%2F%2Finversioneskr.vercel.app%2Fproductos%23cubierta-moto-grande" 
+                   target="_blank" 
+                   style="background-color: #000000; color: #FFD700; text-decoration: none; padding: 10px 12px; border-radius: 8px; text-align: center; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease; display: block; width: 100%; box-sizing: border-box; margin-top: 0; flex-shrink: 0;"
+                   onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#000000';" 
+                   onmouseout="this.style.backgroundColor='#000000'; this.style.color='#FFD700';">
+                    SOLICITAR INFORMACIÓN
+                </a>
+            </div>
+        </div>
+    </div>
+            
+            <p style="text-align: center; font-size: 1.2em; margin: 3rem 20px; padding: 1rem; background: #FFD700; color: #000000; border-radius: 50px; font-weight: bold;">
+                PRECIOS VARIABLES SEGÚN PEDIDO - ¡CONSULTANOS POR WHATSAPP!
+            </p>
         </section>
 
-        <!-- Contacto -->
+<!-- ===== SECCIÓN SERVICIOS ===== -->
+<section id="servicios" class="fade-in-section">
+    <h2>SERVICIOS DE MANTENIMIENTO</h2>
+    <hr>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; padding: 0 20px;">
+        
+        <!-- SERVICIO 1 - MANTENIMIENTO BÁSICO DE CELULARES -->
+        <div class="servicio-item" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #FFD700; text-align: center; transition: all 0.3s ease; height: 250px; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="color: #000000; margin-bottom: 1rem; font-size: 1.3rem;"> MANTENIMIENTO BÁSICO DE CELULARES</h3>
+            <p style="color: #555; font-size: 1rem; line-height: 1.5;">Limpieza, revisión general, cambio de protectores y diagnóstico de problemas comunes.</p>
+        </div>
+
+        <!-- SERVICIO 2 - REPARACIÓN DE CELULARES (NUEVO) -->
+        <div class="servicio-item" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #FFD700; text-align: center; transition: all 0.3s ease; height: 250px; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="color: #000000; margin-bottom: 1rem; font-size: 1.3rem;"> REPARACIÓN DE CELULARES</h3>
+            <p style="color: #555; font-size: 1rem; line-height: 1.5;">Reparación de pantallas, cambio de conectores, solución de fallas eléctricas y más.</p>
+        </div>
+
+        <!-- SERVICIO 3 - ASESORÍA TÉCNICA -->
+        <div class="servicio-item" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #FFD700; text-align: center; transition: all 0.3s ease; height: 250px; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="color: #000000; margin-bottom: 1rem; font-size: 1.3rem;"> ASESORÍA TÉCNICA</h3>
+            <p style="color: #555; font-size: 1rem; line-height: 1.5;">Te ayudamos a elegir el accesorio o repuesto correcto para tu dispositivo.</p>
+        </div>
+    </div>
+    
+    <!-- SOLICITA TU SERVICIO -->
+    <div style="margin: 3rem 20px; padding: 2rem; background: white; border-radius: 12px; border: 2px solid #FFD700; text-align: center;">
+        <h3 style="color: #000000; font-size: 1.8rem; margin-bottom: 1rem;"> SOLICITA TU SERVICIO</h3>
+        <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">Contáctanos para agendar una revisión o consultar por reparaciones específicas.</p>
+        <div style="margin-top: 2rem;">
+            <a href="https://wa.me/50432108161?text=Hola%2C%20quiero%20solicitar%20un%20servicio%20de%20reparaci%C3%B3n%20o%20mantenimiento" 
+               target="_blank"
+               style="background-color: #25D366; color: white; text-decoration: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: all 0.3s ease; border: 2px solid #25D366;"
+               onmouseover="this.style.backgroundColor='#128C7E'; this.style.borderColor='#128C7E';"
+               onmouseout="this.style.backgroundColor='#25D366'; this.style.borderColor='#25D366';">
+                SOLICITAR POR WHATSAPP
+            </a>
+        </div>
+    </div>
+</section>
+        <!-- ===== SECCIÓN CONTACTO ===== -->
         <section id="contacto" class="fade-in-section">
-            <h2>CONTACTO</h2>
+            <h2>CONTACTO Y PEDIDOS</h2>
             <hr>
+            
             <div class="contacto-grid">
-                <div>
-                    <h3>Oficina Principal</h3>
-                    <p><strong>Dirección:</strong> Bo. El Centro, Tocoa, Honduras.</p>
-                    <p><strong>Email:</strong> cosco@constructoracosco.com</p>
-                    <p><strong>Teléfono:</strong> +504 2444-3892</p>
-                    <p><strong>Horario:</strong> Lun-Vie 8:00 a. m. a 5:00 p. m.</p>
-
-                    <h3 style="margin-top: 2rem;">Ubicación II - Venta de Agregados</h3>
-                    <p><strong>Dirección:</strong> Frente a CA-13, Zamora, Tocoa, Colón.</p>
-                    <p><strong>Email:</strong> ventas@constructoracosco.com</p>
-                    <p><strong>Teléfono:</strong> +504 2434-9525</p>
-                    <p><strong>Horario:</strong> Lun-Vie 8:00 a. m. a 5:00 p. m.</p>
+                <div class="info-contacto">
+                    <h3>UBICACIÓN</h3>
+                    <p><strong>Tocoa, Colón</strong> (Honduras)</p>
+                    <p><em>No tenemos local físico - Trabajamos por pedidos</em></p>
+                    
+                    <h3 style="margin-top: 2rem;">CONTACTO DIRECTO</h3>
+                    <p><strong>Teléfono/WhatsApp:</strong> +504 3210-8161</p>
+                    
+                    <h3 style="margin-top: 2rem;">ENTREGA A DOMICILIO</h3>
+                    <p><strong>Gratuita</strong> en toda la zona de Tocoa</p>
+                    <p>Horario de atención: Lun-Vie 9:00 a.m. - 6:00 p.m.</p>
+                    
+                    <h3 style="margin-top: 2rem;">TIEMPO DE ENTREGA</h3>
+                    <p>24-48 horas hábiles después de confirmar tu pedido</p>
                 </div>
+                
                 <div>
-                    <h3>Solicitar Información</h3>
+                    <h3>SOLICITA TU PEDIDO</h3>
                     <form class="formulario-contacto">
-                        <input type="text" placeholder="Nombre" name="nombre">
-                        <input type="text" placeholder="Apellido" name="apellido">
-                        <input type="email" placeholder="Email" name="email" required>
-                        <input type="text" placeholder="Teléfono" name="telefono">
-                        <textarea placeholder="Mensaje" rows="5" name="mensaje"></textarea>
-                        <button type="submit">Enviar</button>
+                        <input type="text" placeholder="Nombre completo" name="nombre" required>
+                        <input type="text" placeholder="Teléfono / WhatsApp" name="telefono" required>
+                        <input type="email" placeholder="Email (opcional)" name="email">
+                        <textarea placeholder="¿Qué producto/servicio necesitas? Incluye detalles como modelo, color, cantidad..." rows="6" name="mensaje" required></textarea>
+                        <button type="submit">ENVIAR PEDIDO</button>
                     </form>
                 </div>
             </div>
-            <div class="mapa-placeholder" style="margin-top: 2rem;">
-                [Aquí iría un mapa interactivo]
+            
+            <div style="margin: 3rem 20px; text-align: center;">
+                <p style="font-size: 1.3em; background: #FFD700; color: #000000; padding: 1rem; border-radius: 50px; font-weight: bold;">
+                    ¡Haz tu pedido hoy y recíbelo en la puerta de tu casa!
+                </p>
             </div>
         </section>
     </main>
@@ -933,16 +1041,18 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
-            <p>© 2024 Constructora Cosco. Todos los derechos reservados.</p>
+            <p>© 2024 INVERSIONES KR - Tocoa, Colón</p>
             <div style="margin-top: 1rem;">
-                <a href="#" class="social-icon">f</a>
-                <a href="#" class="social-icon">ig</a>
-                <a href="#" class="social-icon">yt</a>
+                <a href="https://wa.me/50432108161" target="_blank" class="whatsapp-footer-icon" title="WhatsApp">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.11 8.11 0 0 1-1.24-4.34c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.21 8.21 0 0 1 2.41 5.83c.02 4.54-3.68 8.24-8.24 8.24z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- ===== BOTÓN FLOTANTE ===== -->
+    <!-- ===== BOTÓN FLOTANTE WHATSAPP ===== -->
     <div class="professional-social-btn" id="professionalSocialBtn">
         <div class="professional-main-btn" onclick="toggleProfessionalMenu()">
             <span class="dots-icon">⋯</span>
@@ -950,126 +1060,53 @@
         </div>
         
         <div class="professional-icons-panel">
-            <a href="https://wa.me/504XXXXXXXX" target="_blank" class="professional-social-item whatsapp" data-tooltip="WhatsApp">
+            <a href="https://wa.me/50432108161" target="_blank" class="professional-social-item" data-tooltip="WhatsApp">
                 <svg viewBox="0 0 24 24">
-                    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.11 8.11 0 0 1-1.24-4.34c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.21 8.21 0 0 1 2.41 5.83c.02 4.54-3.68 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.31z"/>
-                </svg>
-            </a>
-            <a href="#" target="_blank" class="professional-social-item facebook" data-tooltip="Facebook">
-                <svg viewBox="0 0 24 24">
-                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
-                </svg>
-            </a>
-            <a href="#" target="_blank" class="professional-social-item instagram" data-tooltip="Instagram">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.89 4.89 0 0 1-1.153 1.772c-.5.509-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.89 4.89 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.89 4.89 0 0 1 1.153-1.772A4.89 4.89 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-                </svg>
-            </a>
-            <a href="#" target="_blank" class="professional-social-item tiktok" data-tooltip="TikTok">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.2-.01.39.01.58.03V9.44a6.33 6.33 0 0 0-1-.08 6.34 6.34 0 0 0 0 12.68c3.5 0 6.34-2.84 6.34-6.34v-7.1a8.23 8.23 0 0 0 4.77 1.47v-3.4a4.84 4.84 0 0 1-1.48-.26z"/>
-                </svg>
-            </a>
-            <a href="#" target="_blank" class="professional-social-item youtube" data-tooltip="YouTube">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.11 8.11 0 0 1-1.24-4.34c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.21 8.21 0 0 1 2.41 5.83c.02 4.54-3.68 8.24-8.24 8.24z"/>
                 </svg>
             </a>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script>
-        // Animación al hacer scroll
+        function showSection(sectionId) {
+            console.log('Mostrando sección:', sectionId);
+            document.querySelectorAll('section').forEach(s => {
+                s.classList.remove('active-section');
+                s.classList.remove('visible');
+            });
+            
+            const selected = document.getElementById(sectionId);
+            if (selected) {
+                selected.classList.add('active-section');
+                setTimeout(() => {
+                    selected.classList.add('visible');
+                }, 50);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.error('No se encontró la sección:', sectionId);
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in-section');
-            
-            function checkFade() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementBottom = element.getBoundingClientRect().bottom;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100 && elementBottom > 0) {
-                        element.classList.add('visible');
-                    }
-                });
-            }
-            
-            checkFade();
-            window.addEventListener('scroll', checkFade);
-            
-            // Animación de números en estadísticas
-            const statsSection = document.querySelector('.estadisticas');
-            if (statsSection) {
-                const stats = statsSection.querySelectorAll('h3');
-                stats.forEach(stat => {
-                    const finalNumber = stat.textContent;
-                    stat.setAttribute('data-target', finalNumber);
-                    stat.textContent = '0';
-                });
-                
-                function animateNumbers() {
-                    if (statsSection.classList.contains('visible')) {
-                        stats.forEach(stat => {
-                            const target = stat.getAttribute('data-target');
-                            let current = 0;
-                            const increment = target.includes('%') ? 1 : Math.ceil(parseInt(target) / 50);
-                            
-                            const timer = setInterval(() => {
-                                if (target.includes('%')) {
-                                    if (current < parseInt(target)) {
-                                        current += increment;
-                                        stat.textContent = current + '%';
-                                    } else {
-                                        stat.textContent = target;
-                                        clearInterval(timer);
-                                    }
-                                } else {
-                                    if (current < parseInt(target)) {
-                                        current += increment;
-                                        stat.textContent = current;
-                                    } else {
-                                        stat.textContent = target;
-                                        clearInterval(timer);
-                                    }
-                                }
-                            }, 30);
-                        });
-                        
-                        window.removeEventListener('scroll', checkNumbers);
-                    }
-                }
-                
-                function checkNumbers() {
-                    const rect = statsSection.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        animateNumbers();
-                    }
-                }
-                
-                window.addEventListener('scroll', checkNumbers);
-                checkNumbers();
-            }
+            console.log('DOM cargado, mostrando nosotros');
+            showSection('nosotros');
         });
 
-        // Función para el botón flotante
         function toggleProfessionalMenu() {
             const btn = document.getElementById('professionalSocialBtn');
-            const mainBtn = btn.querySelector('.professional-main-btn');
             btn.classList.toggle('active');
-            mainBtn.classList.toggle('active');
         }
 
         // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             const btn = document.getElementById('professionalSocialBtn');
             if (!btn.contains(event.target) && btn.classList.contains('active')) {
-                toggleProfessionalMenu();
+                btn.classList.remove('active');
             }
         });
 
-        // Prevenir cierre al hacer clic en iconos
+        // Prevenir que el menú se cierre al hacer clic en el icono de WhatsApp
         document.querySelectorAll('.professional-social-item').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1078,4 +1115,5 @@
     </script>
 </body>
 </html>
+
 
