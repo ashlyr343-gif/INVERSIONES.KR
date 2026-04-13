@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://inversioneskr.vercel.app/sitemap.xml
+
+# Optimización para SEO local
+Allow: /#productos
+Allow: /#servicios
+Allow: /#contacto
+Allow: /#nosotros
+
+# Googlebot optimizado
+User-agent: Googlebot
+Allow: /
